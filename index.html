@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CERA SERAMİK — Sanatın Toz Hali</title>
+    <title>Cera Seramik Tozu | Sanatın En Kaliteli Toz Hali</title>
+    <meta name="description" content="Cera Seramik Tozu: Yüksek mukavemetli, pürüzsüz yüzey ve su geçirmezlik özelliğiyle profesyonel döküm objeler için premium seramik malzemesi.">
     <style>
         /* --- TASARIM SİSTEMİ --- */
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Manrope:wght@200;300;400;600&display=swap');
@@ -45,6 +46,7 @@
             background-size: cover; background-position: center; background-attachment: fixed;
         }
 
+        /* SEO: H1 başlığı anahtar kelime odaklı yapıldı */
         h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; }
 
         /* --- CERA NEDİR (ALTIN KUTU) --- */
@@ -89,22 +91,17 @@
         
         .feature-item p { text-align: center; font-size: 0.9rem; }
 
-        .feature-item:nth-child(4) { grid-column: 2; } /* PC'de ortada */
+        .feature-item:nth-child(4) { grid-column: 2; } 
 
         /* GRID SİSTEMİ (MOBİL DÜZELTME) */
         @media (max-width: 768px) {
             .gold-border-box { padding: 20px 10px; }
-            
             .features-grid { 
-                grid-template-columns: repeat(2, 1fr); /* Mobilde 2 sütun */
+                grid-template-columns: repeat(2, 1fr); 
                 gap: 10px; 
             }
-            
             .feature-item { padding: 15px 10px; }
-            
-            .feature-item:nth-child(4) { 
-                grid-column: span 1; /* Mobilde normal yerine dönsün, ortaya gitmesin */
-            }
+            .feature-item:nth-child(4) { grid-column: span 1; }
         }
 
         /* --- VİDEO --- */
@@ -118,10 +115,9 @@
             max-height: 100vh; border: none;
         }
 
-        /* --- GALERİ (MOBİL KAYDIRMA EFEKTİ DAHİL) --- */
-        /* Hem PC hem Mobil için uzun container */
+        /* --- GALERİ --- */
         .horizontal-scroll-container { 
-            height: 500vh; /* Kaydırma mesafesi */
+            height: 500vh; 
             position: relative; 
         }
 
@@ -138,12 +134,11 @@
             width: 60vh; height: 70vh; flex-shrink: 0; 
         }
 
-        /* Mobil için Galeri Boyutlandırması */
         @media (max-width: 768px) {
-            .horizontal-scroll-container { height: 400vh; /* Mobilde biraz daha kısa mesafe yeterli */ }
+            .horizontal-scroll-container { height: 400vh; }
             .gallery-track { padding-left: 5vw; gap: 5vw; }
             .gallery-item { 
-                width: 80vw; /* Mobilde ekranı daha çok kaplasın */
+                width: 80vw; 
                 height: 60vh; 
             }
         }
@@ -168,7 +163,7 @@
     </nav>
 
     <section class="hero">
-        <h1>Sanatın Toz Hali</h1>
+        <h1>Cera Seramik Tozu</h1>
         <p style="color:var(--accent-color); letter-spacing:3px;">PREMIUM SERAMİK DÖKÜM MALZEMESİ</p>
     </section>
 
@@ -193,6 +188,7 @@
     <div class="video-container">
         <iframe 
             src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1" 
+            title="Cera Seramik Tozu Uygulama Videosu"
             allow="autoplay; encrypted-media" 
             allowfullscreen>
         </iframe>
@@ -201,32 +197,31 @@
     <div class="horizontal-scroll-container">
         <div class="sticky-gallery">
             <div class="gallery-track" id="track">
-                <div class="gallery-item"><img src="cera/foto1.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto2.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto3.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto4.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto5.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto6.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto7.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto8.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto9.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto10.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto11.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto12.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto13.jpg" class="gallery-img"></div>
-                <div class="gallery-item"><img src="cera/foto14.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto1.jpg" alt="Cera Seramik Tozu ile üretilmiş dekoratif obje" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto2.jpg" alt="Cera Seramik Tozu pürüzsüz yüzey detayı" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto3.jpg" alt="Seramik döküm malzemesi uygulama örneği" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto4.jpg" alt="Cera seramik sanatsal objeler" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto5.jpg" alt="Renklendirilmiş seramik tozu dökümü" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto6.jpg" alt="Dayanıklı seramik döküm objeler" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto7.jpg" alt="Kalıp döküm seramik malzemeleri" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto8.jpg" alt="Hobi amaçlı seramik tozu kullanımı" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto9.jpg" alt="Cera seramik tozu teknik analiz" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto10.jpg" alt="Atölye çalışmaları seramik döküm" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto11.jpg" alt="Hediyelik seramik obje yapımı" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto12.jpg" alt="Cera premium seramik tozu" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto13.jpg" alt="Seramik döküm kursu malzemeleri" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto14.jpg" alt="Beyaz seramik döküm tozu" class="gallery-img"></div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2024 CERA SERAMİK</p>
+        <p>© 2024 Cera Seramik Tozu - Tüm Hakları Saklıdır.</p>
     </footer>
 
-    <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Seramik%20tozu%20siparişi%20vermek%20istiyorum." class="fixed-whatsapp" target="_blank">WhatsApp Sipariş</a>
+    <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Seramik%20tozu%20siparişi%20vermek%20istiyorum." class="fixed-whatsapp" target="_blank" rel="noopener">WhatsApp Sipariş</a>
 
     <script>
-        // MOBİL VE PC İÇİN ORTAK SCROLL KODU
         const track = document.getElementById('track');
         const container = document.querySelector('.horizontal-scroll-container');
 
@@ -234,11 +229,8 @@
             const offsetTop = container.offsetTop;
             const scrollY = window.scrollY;
             
-            // Eğer kullanıcı galeri alanına geldiyse
             if (scrollY >= offsetTop && scrollY <= offsetTop + container.offsetHeight - window.innerHeight) {
-                // Ne kadar aşağı indiğimizi yüzdeye çevir
                 const percentage = (scrollY - offsetTop) / (container.offsetHeight - window.innerHeight);
-                // Bu yüzdeye göre track'i sola kaydır
                 track.style.transform = `translateX(-${(track.scrollWidth - window.innerWidth) * percentage}px)`;
             }
         });
