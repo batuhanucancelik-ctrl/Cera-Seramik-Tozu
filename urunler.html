@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünlerimiz | Cera Seramik Tozu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Manrope:wght@300;500&display=swap');
+
+        :root {
+            --bg: #0a0a0a;
+            --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: #fff; font-family: 'Manrope', sans-serif; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.2rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10, 10, 10, 0.95); z-index: 1000; border-bottom: 1px solid rgba(198, 168, 124, 0.2);
+        }
+        .brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 2px; }
+
+        .catalog-header { padding: 150px 5% 50px; text-align: center; }
+        .catalog-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* ÜRÜN KARTLARI */
+        .product-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; padding: 50px 10%;
+        }
+        .product-card {
+            border: 1px solid rgba(198, 168, 124, 0.2); background: #111;
+            padding: 20px; text-align: center; transition: 0.3s;
+        }
+        .product-card:hover { transform: translateY(-10px); border-color: #bf953f; }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px; }
+        .product-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #bf953f; margin-bottom: 10px; }
+        .product-card p { font-size: 0.9rem; color: #ccc; margin-bottom: 20px; }
+        
+        .buy-btn {
+            display: inline-block; padding: 10px 20px; background: var(--gold-leaf);
+            color: #000; text-decoration: none; font-weight: 600; font-size: 0.8rem;
+        }
+
+        footer { padding: 40px; text-align: center; border-top: 1px solid #222; margin-top: 50px; color: #555; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="brand-logo">CERA SERAMİK</a>
+        <a href="index.html" style="color: #bf953f; text-decoration: none; font-size: 0.8rem;">← ANA SAYFAYA DÖN</a>
+    </nav>
+
+    <header class="catalog-header">
+        <h1>Ürün Koleksiyonumuz</h1>
+        <p>Sanatınız için en saf ve en kaliteli döküm malzemeleri</p>
+    </header>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="cera/foto1.jpg" alt="Cera 1kg">
+            <h3>Cera Premium 1KG</h3>
+            <p>Küçük projeler ve denemeler için ideal miktar.</p>
+            <a href="https://wa.me/905303107320" class="buy-btn">WHATSAPP İLE SİPARİŞ</a>
+        </div>
+
+        <div class="product-card">
+            <img src="cera/foto5.jpg" alt="Cera 5kg">
+            <h3>Cera Atölye 5KG</h3>
+            <p>Profesyonel üretim yapan sanatçılar için ekonomik seçim.</p>
+            <a href="https://wa.me/905303107320" class="buy-btn">WHATSAPP İLE SİPARİŞ</a>
+        </div>
+
+        <div class="product-card">
+            <img src="cera/foto10.jpg" alt="Cera 20kg">
+            <h3>Cera Endüstriyel 20KG</h3>
+            <p>Büyük hacimli dökümler için maksimum tasarruf paketi.</p>
+            <a href="https://wa.me/905303107320" class="buy-btn">WHATSAPP İLE SİPARİŞ</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 CERA SERAMİK - Sanatın Toz Hali</p>
+    </footer>
+
+</body>
+</html>
