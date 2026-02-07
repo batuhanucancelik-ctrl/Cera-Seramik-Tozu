@@ -5,86 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ürünlerimiz | Cera Seramik Tozu</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Manrope:wght@300;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=Manrope:wght@200;300;400;600&display=swap');
 
         :root {
-            --bg: #0a0a0a;
+            --bg-color: #0f0f0f;
+            --accent-color: #c6a87c;
             --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: #fff; font-family: 'Manrope', sans-serif; }
+        body { background-color: var(--bg-color); color: #f5f5f5; font-family: 'Manrope', sans-serif; }
 
+        /* HEADER */
         nav {
             position: fixed; top: 0; width: 100%; padding: 1.2rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(10, 10, 10, 0.95); z-index: 1000; border-bottom: 1px solid rgba(198, 168, 124, 0.2);
+            z-index: 1000; background: rgba(15, 15, 15, 0.95); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 2px; }
+        .brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.2em; color: #fff; text-decoration: none; }
 
-        .catalog-header { padding: 150px 5% 50px; text-align: center; }
-        .catalog-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* CATALOG SECTION */
+        .catalog-container { padding: 150px 5% 100px; max-width: 1200px; margin: 0 auto; }
+        .page-title { 
+            text-align: center; font-family: 'Cormorant Garamond', serif; 
+            font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 50px;
+            background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
 
-        /* ÜRÜN KARTLARI */
+        /* PRODUCT GRID */
         .product-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; padding: 50px 10%;
-        }
-        .product-card {
-            border: 1px solid rgba(198, 168, 124, 0.2); background: #111;
-            padding: 20px; text-align: center; transition: 0.3s;
-        }
-        .product-card:hover { transform: translateY(-10px); border-color: #bf953f; }
-        .product-card img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px; }
-        .product-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #bf953f; margin-bottom: 10px; }
-        .product-card p { font-size: 0.9rem; color: #ccc; margin-bottom: 20px; }
-        
-        .buy-btn {
-            display: inline-block; padding: 10px 20px; background: var(--gold-leaf);
-            color: #000; text-decoration: none; font-weight: 600; font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        footer { padding: 40px; text-align: center; border-top: 1px solid #222; margin-top: 50px; color: #555; }
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(198, 168, 124, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            border-color: #bf953f;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-radius: 2px;
+            border: 1px solid rgba(198, 168, 124, 0.1);
+        }
+
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            height: 50px;
+        }
+
+        /* WHATSAPP BUTTON */
+        .order-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold-leaf);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        footer { padding: 50px; text-align: center; color: #555; border-top: 1px solid #222; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="index.html" class="brand-logo">CERA SERAMİK</a>
-        <a href="index.html" style="color: #bf953f; text-decoration: none; font-size: 0.8rem;">← ANA SAYFAYA DÖN</a>
+        <a href="index.html" style="color:var(--accent-color); text-decoration:none; font-size:0.8rem; border:1px solid; padding:5px 15px;">← ANA SAYFA</a>
     </nav>
 
-    <header class="catalog-header">
-        <h1>Ürün Koleksiyonumuz</h1>
-        <p>Sanatınız için en saf ve en kaliteli döküm malzemeleri</p>
-    </header>
+    <div class="catalog-container">
+        <h1 class="page-title">Ürün Koleksiyonumuz</h1>
 
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="cera/foto1.jpg" alt="Cera 1kg">
-            <h3>Cera Premium 1KG</h3>
-            <p>Küçük projeler ve denemeler için ideal miktar.</p>
-            <a href="https://wa.me/905303107320" class="buy-btn">WHATSAPP İLE SİPARİŞ</a>
-        </div>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="cera/foto1.jpg" alt="Cera 1kg">
+                <h3 class="product-name">Cera Premium 1KG</h3>
+                <p class="product-desc">Küçük boyutlu sanatsal objeler ve hobi kullanımları için ideal başlangıç paketi.</p>
+                <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Premium%201KG%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="order-btn">SİPARİŞ VER / BİLGİ AL</a>
+            </div>
 
-        <div class="product-card">
-            <img src="cera/foto5.jpg" alt="Cera 5kg">
-            <h3>Cera Atölye 5KG</h3>
-            <p>Profesyonel üretim yapan sanatçılar için ekonomik seçim.</p>
-            <a href="https://wa.me/905303107320" class="buy-btn">WHATSAPP İLE SİPARİŞ</a>
-        </div>
+            <div class="product-card">
+                <img src="cera/foto5.jpg" alt="Cera 5kg">
+                <h3 class="product-name">Cera Atölye 5KG</h3>
+                <p class="product-desc">Sık üretim yapan atölyeler için yüksek mukavemet ve ekonomik kullanım sunan paket.</p>
+                <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Atölye%205KG%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="order-btn">SİPARİŞ VER / BİLGİ AL</a>
+            </div>
 
-        <div class="product-card">
-            <img src="cera/foto10.jpg" alt="Cera 20kg">
-            <h3>Cera Endüstriyel 20KG</h3>
-            <p>Büyük hacimli dökümler için maksimum tasarruf paketi.</p>
-            <a href="https://wa.me/905303107320" class="buy-btn">WHATSAPP İLE SİPARİŞ</a>
+            <div class="product-card">
+                <img src="cera/foto10.jpg" alt="Cera 20kg">
+                <h3 class="product-name">Cera Endüstriyel 20KG</h3>
+                <p class="product-desc">Büyük dökümler ve seri üretimler için en avantajlı fiyat garantili paketimiz.</p>
+                <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Endüstriyel%2020KG%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="order-btn">SİPARİŞ VER / BİLGİ AL</a>
+            </div>
+
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 CERA SERAMİK - Sanatın Toz Hali</p>
-    </footer>
+    <footer><p>© 2026 Cera Seramik Tozu - Sanatın En Saf Hali</p></footer>
 
 </body>
 </html>
