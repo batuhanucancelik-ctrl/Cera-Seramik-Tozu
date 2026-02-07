@@ -53,7 +53,7 @@
         .feature-item p { font-size: 0.85rem; color: #bbb; }
         .feature-item:nth-child(4) { grid-column: 2; }
 
-        /* VIDEO (DOKUNULMAZ) */
+        /* VIDEO - MASAÜSTÜ */
         .video-wrapper { width: 100vw; height: 100vh; overflow: hidden; position: relative; background: #000; }
         .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent; }
         .video-wrapper iframe { 
@@ -71,7 +71,7 @@
         .gallery-card.active { transform: scale(1.2); opacity: 1; z-index: 100; }
         .gallery-card.active img { border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1; box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); }
 
-        /* FOOTER (TÜM BİLGİLER BURADA) */
+        /* FOOTER */
         footer { background: #050505; padding: 60px 5% 30px; border-top: 1px solid #111; }
         .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 40px; }
         .footer-brand h4 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 15px; }
@@ -89,12 +89,23 @@
 
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; z-index: 9999; box-shadow: 0 10px 20px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 10px; }
 
+        /* MOBİL OPTİMİZASYON */
         @media (max-width: 768px) {
+            .nav-phone { font-size: 0.75rem; }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .feature-item:nth-child(4) { grid-column: span 1; }
+            
+            /* Mobil Video Ayarı */
+            .video-wrapper { height: 60vh; min-height: 350px; }
+            .video-wrapper iframe { 
+                width: 100%; height: 100%; top: 0; left: 0; transform: none; 
+            }
+
             .footer-main { flex-direction: column; text-align: center; }
             .footer-brand p { margin: 0 auto 8px auto; }
             .social-links { margin: 0 auto 20px auto; }
+            .gallery-card { width: 30vh; height: 40vh; }
+            .track { padding: 0 35vw; }
         }
     </style>
 </head>
