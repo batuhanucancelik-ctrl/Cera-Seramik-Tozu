@@ -28,24 +28,13 @@
         .nav-phone { background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; text-decoration: none; }
         .nav-btn { border: 1px solid var(--accent-color); padding: 8px 15px; color: var(--accent-color); text-decoration: none; font-size: 0.8rem; }
 
-        /* VIDEO - FULL BLEED (BOŞLUKSUZ) */
-        .video-wrapper {
-            width: 100vw; height: 100vh; overflow: hidden; position: relative; background: #000;
-        }
-        .video-wrapper iframe {
-            position: absolute; top: 50%; left: 50%;
-            width: 100vw; height: 56.25vw; /* 16:9 Oranı */
-            min-height: 100vh; min-width: 177.77vh; /* Orantılı tam dolum */
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        /* HERO & CONTENT */
+        /* HERO SECTION */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('cera/foto15.jpg') center/cover fixed; }
         h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; }
 
+        /* AÇIKLAMA VE ALTIN KUTU (ÜSTTE) */
         .gold-border-box {
-            padding: 60px 40px; max-width: 1100px; margin: 80px auto; text-align: center;
+            padding: 80px 40px; max-width: 1100px; margin: 100px auto 60px; text-align: center;
             border: 2px solid transparent; border-image: var(--gold-leaf) 1;
             background: rgba(255, 255, 255, 0.02);
         }
@@ -58,21 +47,68 @@
         .feature-item h3 { color: var(--accent-color); font-family: 'Cormorant Garamond', serif; margin-bottom: 10px; }
         .feature-item:last-child { grid-column: 2; }
 
-        /* SCROLL GALLERY - FIXED */
+        /* VIDEO - AÇIKLAMANIN ALTINDA VE TAM EKRAN */
+        .video-wrapper {
+            width: 100vw; height: 100vh; overflow: hidden; position: relative; background: #000; margin-bottom: 80px;
+        }
+        .video-wrapper iframe {
+            position: absolute; top: 50%; left: 50%;
+            width: 100vw; height: 56.25vw;
+            min-height: 100vh; min-width: 177.77vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* SCROLL GALLERY - YENİ TASARIM */
         .scroll-area { height: 600vh; position: relative; }
-        .sticky-wrap { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
-        .track { display: flex; gap: 3vw; padding: 0 10vw; will-change: transform; }
-        .gallery-card { width: 70vh; height: 80vh; flex-shrink: 0; }
-        .gallery-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+        .sticky-wrap { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .track { 
+            display: flex; 
+            gap: 3vw; 
+            padding: 0 10vw; 
+            will-change: transform;
+            align-items: center;
+        }
+        .gallery-card { 
+            width: 50vh; 
+            height: 60vh; 
+            flex-shrink: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .gallery-card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 2px;
+            border: 3px solid transparent;
+            background: linear-gradient(#0f0f0f, #0f0f0f) padding-box,
+                        var(--gold-leaf) border-box;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Merkezdeki (aktif) kart büyük olacak */
+        .gallery-card.active {
+            width: 70vh;
+            height: 80vh;
+            z-index: 10;
+        }
+        
+        .gallery-card.active img {
+            border-width: 4px;
+            box-shadow: 0 20px 60px rgba(198, 168, 124, 0.3);
+        }
 
         /* MOBILE FIXES */
         @media (max-width: 768px) {
             .video-wrapper iframe {
-                width: 177.77vh; height: 100vh; /* Mobilde kesmeden tam boy */
+                width: 177.77vh; height: 100vh;
             }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .feature-item:last-child { grid-column: auto; }
-            .gallery-card { width: 85vw; height: 60vh; }
+            .gallery-card { width: 60vw; height: 50vh; }
+            .gallery-card.active { width: 85vw; height: 60vh; }
+            .gold-border-box { margin-top: 60px; padding: 40px 20px; }
         }
 
         .wa-btn { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
@@ -89,10 +125,6 @@
         </div>
     </nav>
 
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&rel=0&modestbranding=1&iv_load_policy=3" allow="autoplay; encrypted-media"></iframe>
-    </div>
-
     <section class="hero">
         <h1>Cera Seramik Tozu</h1>
         <p style="color:var(--accent-color); letter-spacing:5px;">PREMIUM QUALITY</p>
@@ -100,7 +132,7 @@
 
     <div class="gold-border-box">
         <h2 class="desc-title">Cera Seramik Tozu Nedir?</h2>
-        <p style="line-height:1.8; color:#ccc;">
+        <p style="line-height:1.8; color:#ccc; text-align: center;">
             Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülen özel bir kompozit malzemedir. 
             Kendi hazırladığınız kalıplara dökerek yüksek kaliteli objeler üretebilirsiniz. <br><br>
             <span class="gold-span">✦ Yüksek mukavemetlidir</span> | <span class="gold-span">✦ Su geçirmezdir</span> | <span class="gold-span">✦ Boyayı güçlü tutar</span><br><br>
@@ -112,6 +144,10 @@
             <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Mükemmel boyanabilirlik.</p></div>
             <div class="feature-item"><h3>Sıfır İşlem</h3><p>Pürüzsüz yüzey.</p></div>
         </div>
+    </div>
+
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&rel=0&modestbranding=1&iv_load_policy=3" allow="autoplay; encrypted-media"></iframe>
     </div>
 
     <div class="scroll-area">
@@ -141,19 +177,41 @@
     <script>
         const track = document.getElementById('galleryTrack');
         const scrollArea = document.querySelector('.scroll-area');
+        const cards = document.querySelectorAll('.gallery-card');
 
-        window.addEventListener('scroll', () => {
+        function updateGallery() {
             const areaTop = scrollArea.offsetTop;
             const areaHeight = scrollArea.offsetHeight - window.innerHeight;
             const scrolled = window.scrollY - areaTop;
             
             if (scrolled >= 0 && scrolled <= areaHeight) {
                 const progress = scrolled / areaHeight;
-                // Track uzunluğunu otomatik hesapla, asla takılmaz
                 const maxMove = track.scrollWidth - window.innerWidth + (window.innerWidth * 0.1);
                 track.style.transform = `translateX(-${progress * maxMove}px)`;
+                
+                // Her kartın ekranın merkezine olan uzaklığını hesapla
+                const centerX = window.innerWidth / 2;
+                
+                cards.forEach((card) => {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenterX = rect.left + rect.width / 2;
+                    const distanceFromCenter = Math.abs(centerX - cardCenterX);
+                    
+                    // En merkezdeki kartı bul (en küçük mesafe)
+                    if (distanceFromCenter < rect.width) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
             }
-        });
+        }
+
+        window.addEventListener('scroll', updateGallery);
+        window.addEventListener('resize', updateGallery);
+        
+        // İlk yüklemede de çalıştır
+        updateGallery();
     </script>
 </body>
 </html>
