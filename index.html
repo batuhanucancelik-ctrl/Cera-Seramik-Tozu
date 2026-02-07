@@ -3,127 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cera Seramik Tozu | Profesyonel Döküm</title>
+    <title>Cera Seramik Tozu | Sanatın En Kaliteli Toz Hali</title>
+    <meta name="description" content="Cera Seramik Tozu: Yüksek mukavemetli, pürüzsüz yüzey ve su geçirmezlik özelliğiyle profesyonel döküm objeler için premium seramik malzemesi.">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Manrope:wght@300;500&display=swap');
+        /* --- TASARIM SİSTEMİ --- */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Manrope:wght@200;300;400;600&display=swap');
 
         :root {
-            --bg: #0a0a0a;
-            --gold: #c6a87c;
+            --bg-color: #0f0f0f;
+            --text-color: #f5f5f5;
+            --accent-color: #c6a87c;
             --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --glass: rgba(15, 15, 15, 0.95);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: #fff; font-family: 'Manrope', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-        /* NAV - Üst Menü */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
         nav {
-            position: fixed; top: 0; width: 100%; padding: 15px 5%;
+            position: fixed; top: 0; width: 100%; padding: 1.2rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(10, 10, 10, 0.95); z-index: 1000; border-bottom: 1px solid rgba(198, 168, 124, 0.2);
+            z-index: 1000; background: var(--glass); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .nav-left { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .brand-logo {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            letter-spacing: 0.2em; color: #fff; text-decoration: none; text-transform: uppercase;
+        }
+
         .nav-right { display: flex; align-items: center; gap: 20px; }
-        .phone { color: var(--gold); font-weight: 600; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
-        .nav-btn { border: 1px solid var(--gold); padding: 8px 15px; color: var(--gold); text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
-        .nav-btn:hover { background: var(--gold); color: #000; }
-
-        /* VIDEO - Tam Genişlik ve Kontrolsüz */
-        .video-container { 
-            width: 100vw; height: 80vh; margin-top: 60px; overflow: hidden; position: relative; 
-            pointer-events: none; /* Üzerine gelince durdurmayı engeller */
-        }
-        .video-container iframe {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-
-        /* AÇIKLAMA - Altın Varaklı */
-        .content-section { padding: 60px 10%; text-align: center; }
-        .gold-text { 
+        
+        .nav-phone { 
             background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 20px;
+            font-weight: 600; font-size: 0.9rem; text-decoration: none;
         }
-        .description { max-width: 800px; margin: 0 auto; color: #ccc; font-size: 1.1rem; }
-        .feature-list { margin-top: 20px; list-style: none; color: var(--gold); font-weight: 500; }
 
-        /* KUTUCUKLAR - Grid Yapısı */
-        .grid-container {
-            display: grid; padding: 40px 10%; gap: 20px;
-            grid-template-columns: repeat(3, 1fr); /* PC için 3 sütun */
+        .nav-btn {
+            border: 1px solid var(--accent-color); padding: 8px 15px; color: var(--accent-color);
+            text-decoration: none; font-size: 0.8rem; transition: 0.3s;
         }
-        .grid-item {
-            border: 1px solid rgba(198, 168, 124, 0.3); padding: 30px;
+        .nav-btn:hover { background: var(--accent-color); color: #000; }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('cera/foto15.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; }
+
+        /* --- CERA NEDİR (ALTIN KUTU) --- */
+        .description-section { padding: 80px 5%; background: #0f0f0f; }
+
+        .gold-border-box {
+            position: relative; padding: 40px; max-width: 1000px; margin: 0 auto;
             text-align: center; background: rgba(255, 255, 255, 0.02);
-            transition: 0.3s;
-        }
-        .grid-item:last-child { grid-column: 2 / 3; } /* 4. kutuyu altta ortala (PC) */
-        .grid-item h3 { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 10px; }
-
-        /* WHATSAPP */
-        .wa-float {
-            position: fixed; bottom: 20px; right: 20px; background: #25D366;
-            color: white; padding: 12px 25px; border-radius: 50px;
-            text-decoration: none; font-weight: 600; z-index: 1000;
+            border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1;
+            box-shadow: 0 0 20px rgba(191, 149, 63, 0.3), inset 0 0 20px rgba(191, 149, 63, 0.1);
         }
 
-        footer { padding: 40px; text-align: center; border-top: 1px solid #222; font-size: 0.8rem; color: #666; }
+        .desc-title { 
+            font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 3rem); 
+            background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 25px; display: inline-block;
+        }
 
-        /* MOBIL UYUMLULUK */
+        .desc-main-text { 
+            font-size: 1rem; color: #e0e0e0; line-height: 1.8; margin-bottom: 40px; 
+            text-align: center;
+        }
+
+        .gold-span { background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; }
+
+        /* GRID SİSTEMİ */
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+        }
+
+        .feature-item {
+            padding: 25px; background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(198, 168, 124, 0.3);
+            transition: all 0.4s ease;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+
+        .feature-item h3 {
+            font-family: 'Cormorant Garamond', serif; color: var(--accent-color);
+            font-size: 1.4rem; margin-bottom: 12px; text-align: center;
+        }
+        
+        .feature-item p { text-align: center; font-size: 0.9rem; }
+
+        /* 4. Kutuyu masaüstünde altta ve ortada yapmak için */
+        .feature-item:nth-child(4) { grid-column: 2; } 
+
         @media (max-width: 768px) {
-            .grid-container { 
-                grid-template-columns: repeat(2, 1fr); /* Mobil için 2x2 */
+            .features-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 10px; 
             }
-            .grid-item:last-child { grid-column: span 1; }
-            .nav-right { flex-direction: column; gap: 5px; }
-            .gold-text { font-size: 1.8rem; }
-            .video-container { height: 50vh; }
+            .feature-item:nth-child(4) { grid-column: auto; }
+            .nav-right { gap: 10px; }
+            .nav-phone { font-size: 0.75rem; }
         }
+
+        /* --- VİDEO --- */
+        .video-container {
+            width: 100%; height: 100vh; background: #000;
+            display: flex; justify-content: center; align-items: center;
+            pointer-events: none; /* Üzerine gelince durdurma çıkmasın */
+        }
+
+        .video-container iframe {
+            width: 100%; height: 100%; border: none;
+        }
+
+        /* --- GALERİ --- */
+        .horizontal-scroll-container { 
+            height: 500vh; 
+            position: relative; 
+        }
+
+        .sticky-gallery { 
+            position: sticky; top: 0; height: 100vh; overflow: hidden; 
+            display: flex; align-items: center; background: #0a0a0a; 
+        }
+
+        .gallery-track { 
+            display: flex; gap: 4vw; padding-left: 10vw; width: max-content; 
+        }
+
+        .gallery-item { 
+            width: 60vh; height: 70vh; flex-shrink: 0; 
+        }
+
+        .gallery-img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+
+        .fixed-whatsapp {
+            position: fixed; bottom: 25px; right: 25px; background: #25D366;
+            color: #fff; padding: 12px 22px; border-radius: 50px; text-decoration: none;
+            z-index: 2000; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        footer { padding: 60px; text-align: center; background: #050505; border-top: 1px solid #1a1a1a; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-left">CERA SERAMİK</div>
+        <a href="#" class="brand-logo">CERA SERAMİK</a>
         <div class="nav-right">
-            <a href="tel:05303107320" class="phone">0530 310 73 20</a>
+            <a href="tel:05303107320" class="nav-phone">0530 310 73 20</a>
             <a href="#urunler" class="nav-btn">ÜRÜNLERİMİZ</a>
         </div>
     </nav>
 
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&showinfo=0&rel=0&modestbranding=1" 
-                allow="autoplay; encrypted-media" frameborder="0"></iframe>
-    </div>
-
-    <section class="content-section">
-        <h1 class="gold-text">Cera Seramik Tozu Nedir?</h1>
-        <p class="description">
-            Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülmek suretiyle kullanılan özel bir kompozit döküm malzemesidir. 
-            Kendi hazırladığınız kalıplara Cera seramik tozunu dökerek, tamamen el emeğiyle yüksek kaliteli objeler üretebilirsiniz.
-        </p>
-        <ul class="feature-list">
-            <li>✦ Yüksek Mukavemetli Yapı</li>
-            <li>✦ Su Geçirmez Özellik</li>
-            <li>✦ Güçlü Boya Tutuşu</li>
-        </ul>
-        <p class="description" style="margin-top:20px;">
-            Kendiliğinden tesviye özelliği sayesinde kalıba döküldüğünde en ince detaylara dahi nüfuz eder. 
-            Bu sayede donduktan sonra temizleme, zımpara veya taşlama gibi işlemlere ihtiyaç duymazsınız.
-        </p>
+    <section class="hero">
+        <h1>Cera Seramik Tozu</h1>
+        <p style="color:var(--accent-color); letter-spacing:3px;">PREMIUM SERAMİK DÖKÜM MALZEMESİ</p>
     </section>
 
-    <div class="grid-container" id="urunler">
-        <div class="grid-item"><h3>Pürüzsüz</h3><p>Tesviye gerektirmez.</p></div>
-        <div class="grid-item"><h3>Hızlı</h3><p>15 dakikada donma.</p></div>
-        <div class="grid-item)<h3>Dayanıklı</h3><p>Beton kadar sert.</p></div>
-        <div class="grid-item"><h3>Profesyonel</h3><p>Hobi ve sanat için ideal.</p></div>
+    <section class="description-section">
+        <div class="gold-border-box">
+            <h2 class="desc-title">Cera Seramik Tozu Nedir?</h2>
+            <p class="desc-main-text">
+                Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülmek suretiyle kullanılan özel bir kompozit döküm malzemesidir. <br><br>
+                Kendi hazırladığınız kalıplara Cera seramik tozunu dökerek, tamamen el emeğiyle yüksek kaliteli objeler üretebilirsiniz. Cera ile oluşturulan parçalar; <br><br>
+                <span class="gold-span">✦ Yüksek mukavemetlidir</span><br>
+                <span class="gold-span">✦ Su geçirmez özelliktedir</span><br>
+                <span class="gold-span">✦ Boyayı güçlü şekilde tutar</span><br><br>
+                Kendiliğinden tesviye özelliği sayesinde kalıba döküldüğünde en ince detaylara dahi nüfuz eder. Bu sayede donduktan sonra <span class="gold-span">temizleme, zımpara veya taşlama gibi işlemlere ihtiyaç duymazsınız.</span> Pratik ve profesyonel sonuçlar için idealdir.
+            </p>
+            
+            <div class="features-grid" id="urunler">
+                <div class="feature-item"><h3>Yüksek Mukavemet</h3><p>Dayanıklı ve uzun ömürlü yapılar.</p></div>
+                <div class="feature-item"><h3>Su Geçirmez</h3><p>Sıvı temasından etkilenmez.</p></div>
+                <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Boyayı mükemmel tutar.</p></div>
+                <div class="feature-item"><h3>Sıfır İşlem</h3><p>Zımparasız, pürüzsüz sonuç.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1" 
+            allow="autoplay; encrypted-media">
+        </iframe>
     </div>
 
-    <a href="https://wa.me/905303107320" class="wa-float">Sipariş Ver</a>
+    <div class="horizontal-scroll-container">
+        <div class="sticky-gallery">
+            <div class="gallery-track" id="track">
+                <div class="gallery-item"><img src="cera/foto1.jpg" alt="Obje 1" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto2.jpg" alt="Obje 2" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto3.jpg" alt="Obje 3" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto4.jpg" alt="Obje 4" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto5.jpg" alt="Obje 5" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto6.jpg" alt="Obje 6" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto7.jpg" alt="Obje 7" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto8.jpg" alt="Obje 8" class="gallery-img"></div>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>© 2026 CERA SERAMİK TOZU | TÜM HAKLARI SAKLIDIR</p>
+        <p>© 2020 Cera Seramik Tozu - Tüm Hakları Saklıdır.</p>
     </footer>
 
+    <a href="https://wa.me/905303107320" class="fixed-whatsapp" target="_blank">WhatsApp Sipariş</a>
+
+    <script>
+        const track = document.getElementById('track');
+        const container = document.querySelector('.horizontal-scroll-container');
+
+        window.addEventListener('scroll', () => {
+            const offsetTop = container.offsetTop;
+            const scrollY = window.scrollY;
+            
+            if (scrollY >= offsetTop && scrollY <= offsetTop + container.offsetHeight - window.innerHeight) {
+                const percentage = (scrollY - offsetTop) / (container.offsetHeight - window.innerHeight);
+                track.style.transform = `translateX(-${(track.scrollWidth - window.innerWidth) * percentage}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
