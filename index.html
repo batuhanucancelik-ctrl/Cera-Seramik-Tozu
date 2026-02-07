@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERA SERAMİK — Sanatın Toz Hali</title>
+    <style>
+        /* --- TASARIM SİSTEMİ --- */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Manrope:wght@200;300;400;600&display=swap');
+
+        :root {
+            --bg-color: #0f0f0f;
+            --text-color: #f5f5f5;
+            --accent-color: #c6a87c;
+            --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --glass: rgba(15, 15, 15, 0.95);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.2rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: var(--glass); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .brand-logo {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            letter-spacing: 0.2em; color: #fff; text-decoration: none; text-transform: uppercase;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('cera/foto15.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; }
+
+        /* --- CERA NEDİR (ALTIN KUTU) --- */
+        .description-section { padding: 80px 5%; background: #0f0f0f; }
+
+        .gold-border-box {
+            position: relative; padding: 40px; max-width: 1000px; margin: 0 auto;
+            text-align: center; background: rgba(255, 255, 255, 0.02);
+            border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1;
+            box-shadow: 0 0 20px rgba(191, 149, 63, 0.3), inset 0 0 20px rgba(191, 149, 63, 0.1);
+        }
+
+        .desc-title { 
+            font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 3rem); 
+            background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 25px; display: inline-block;
+        }
+
+        .desc-main-text { 
+            font-size: 1rem; color: #e0e0e0; line-height: 1.7; margin-bottom: 40px; 
+            text-align: justify; text-align-last: center;
+        }
+
+        /* GRID SİSTEMİ (PC) */
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+        }
+
+        .feature-item {
+            padding: 25px; background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(198, 168, 124, 0.3);
+            transition: all 0.4s ease;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+
+        .feature-item h3 {
+            font-family: 'Cormorant Garamond', serif; color: var(--accent-color);
+            font-size: 1.4rem; margin-bottom: 12px; text-align: center;
+        }
+        
+        .feature-item p { text-align: center; font-size: 0.9rem; }
+
+        .feature-item:nth-child(4) { grid-column: 2; } /* PC'de ortada */
+
+        /* GRID SİSTEMİ (MOBİL DÜZELTME) */
+        @media (max-width: 768px) {
+            .gold-border-box { padding: 20px 10px; }
+            
+            .features-grid { 
+                grid-template-columns: repeat(2, 1fr); /* Mobilde 2 sütun */
+                gap: 10px; 
+            }
+            
+            .feature-item { padding: 15px 10px; }
+            
+            .feature-item:nth-child(4) { 
+                grid-column: span 1; /* Mobilde normal yerine dönsün, ortaya gitmesin */
+            }
+        }
+
+        /* --- VİDEO --- */
+        .video-container {
+            width: 100%; height: 100vh; background: #000;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .video-container iframe {
+            width: 100%; max-width: 100%; aspect-ratio: 16 / 9; 
+            max-height: 100vh; border: none;
+        }
+
+        /* --- GALERİ (MOBİL KAYDIRMA EFEKTİ DAHİL) --- */
+        /* Hem PC hem Mobil için uzun container */
+        .horizontal-scroll-container { 
+            height: 500vh; /* Kaydırma mesafesi */
+            position: relative; 
+        }
+
+        .sticky-gallery { 
+            position: sticky; top: 0; height: 100vh; overflow: hidden; 
+            display: flex; align-items: center; background: #0a0a0a; 
+        }
+
+        .gallery-track { 
+            display: flex; gap: 4vw; padding-left: 10vw; width: max-content; 
+        }
+
+        .gallery-item { 
+            width: 60vh; height: 70vh; flex-shrink: 0; 
+        }
+
+        /* Mobil için Galeri Boyutlandırması */
+        @media (max-width: 768px) {
+            .horizontal-scroll-container { height: 400vh; /* Mobilde biraz daha kısa mesafe yeterli */ }
+            .gallery-track { padding-left: 5vw; gap: 5vw; }
+            .gallery-item { 
+                width: 80vw; /* Mobilde ekranı daha çok kaplasın */
+                height: 60vh; 
+            }
+        }
+
+        .gallery-img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+
+        .fixed-whatsapp {
+            position: fixed; bottom: 25px; right: 25px; background: #25D366;
+            color: #fff; padding: 12px 22px; border-radius: 50px; text-decoration: none;
+            z-index: 2000; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        footer { padding: 60px; text-align: center; background: #050505; border-top: 1px solid #1a1a1a; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="brand-logo">CERA SERAMİK</a>
+        <span style="color:var(--accent-color); font-size:0.85rem;">0530 310 73 20</span>
+    </nav>
+
+    <section class="hero">
+        <h1>Sanatın Toz Hali</h1>
+        <p style="color:var(--accent-color); letter-spacing:3px;">PREMIUM SERAMİK DÖKÜM MALZEMESİ</p>
+    </section>
+
+    <section class="description-section">
+        <div class="gold-border-box">
+            <h2 class="desc-title">Cera Seramik Tozu Nedir?</h2>
+            <p class="desc-main-text">
+                Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülmek suretiyle kullanılan özel bir kompozit döküm malzemesidir. 
+                Kendi hazırladığınız kalıplara dökerek, tamamen el emeğiyle yüksek kaliteli objeler üretebilirsiniz. 
+                Donduktan sonra temizleme veya zımpara gerektirmez, pürüzsüzdür.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-item"><h3>Yüksek Mukavemet</h3><p>Dayanıklı ve uzun ömürlü yapılar.</p></div>
+                <div class="feature-item"><h3>Su Geçirmez</h3><p>Sıvı temasından etkilenmez.</p></div>
+                <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Boyayı mükemmel tutar.</p></div>
+                <div class="feature-item"><h3>Sıfır İşlem</h3><p>Pürüzsüz yüzey, zımparasız sonuç.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="horizontal-scroll-container">
+        <div class="sticky-gallery">
+            <div class="gallery-track" id="track">
+                <div class="gallery-item"><img src="cera/foto1.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto2.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto3.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto4.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto5.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto6.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto7.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto8.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto9.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto10.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto11.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto12.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto13.jpg" class="gallery-img"></div>
+                <div class="gallery-item"><img src="cera/foto14.jpg" class="gallery-img"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 CERA SERAMİK</p>
+    </footer>
+
+    <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Seramik%20tozu%20siparişi%20vermek%20istiyorum." class="fixed-whatsapp" target="_blank">WhatsApp Sipariş</a>
+
+    <script>
+        // MOBİL VE PC İÇİN ORTAK SCROLL KODU
+        const track = document.getElementById('track');
+        const container = document.querySelector('.horizontal-scroll-container');
+
+        window.addEventListener('scroll', () => {
+            const offsetTop = container.offsetTop;
+            const scrollY = window.scrollY;
+            
+            // Eğer kullanıcı galeri alanına geldiyse
+            if (scrollY >= offsetTop && scrollY <= offsetTop + container.offsetHeight - window.innerHeight) {
+                // Ne kadar aşağı indiğimizi yüzdeye çevir
+                const percentage = (scrollY - offsetTop) / (container.offsetHeight - window.innerHeight);
+                // Bu yüzdeye göre track'i sola kaydır
+                track.style.transform = `translateX(-${(track.scrollWidth - window.innerWidth) * percentage}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
