@@ -7,31 +7,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Manrope:wght@300;500&display=swap');
-        :root { --bg: #0f0f0f; --gold: #c6a87c; --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); }
+        :root { 
+            --bg: #0f0f0f; 
+            --gold: #c6a87c; 
+            --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); 
+        }
         * { margin:0; padding:0; box-sizing:border-box; }
         body { background: var(--bg); color:#fff; font-family:'Manrope', sans-serif; }
         
-        nav { position:fixed; top:0; width:100%; padding:1.2rem 5%; display:flex; justify-content:space-between; align-items:center; background:rgba(15,15,15,0.95); z-index:1000; border-bottom:1px solid rgba(198,168,124,0.1); }
-        .brand-logo { font-family:'Cormorant Garamond', serif; font-size:1.4rem; color:#fff; text-decoration:none; }
-        .back-link { color:var(--gold); text-decoration:none; font-size:0.7rem; border:1px solid; padding:8px 20px; letter-spacing:1px; }
+        /* NAVBAR */
+        nav { position:fixed; top:0; width:100%; padding:1.2rem 5%; display:flex; justify-content:space-between; align-items:center; background:rgba(15,15,15,0.95); z-index:1000; border-bottom:1px solid rgba(198,168,124,0.1); backdrop-filter: blur(10px); }
+        .brand-logo { font-family:'Cormorant Garamond', serif; font-size:1.4rem; color:#fff; text-decoration:none; letter-spacing: 2px; }
+        .back-link { color:var(--gold); text-decoration:none; font-size:0.7rem; border:1px solid; padding:8px 20px; letter-spacing:1px; transition: 0.3s; }
+        .back-link:hover { background: var(--gold-leaf); color: #000; border-color: transparent; }
 
-        .catalog { padding: 150px 8% 100px; }
-        .catalog h1 { font-family:'Cormorant Garamond', serif; font-size: 3rem; text-align: center; margin-bottom: 50px; }
+        /* CATALOG */
+        .catalog { padding: 150px 8% 100px; max-width: 1400px; margin: 0 auto; }
+        .catalog h1 { font-family:'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 50px; background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
+        /* PRODUCT GRID */
         .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:30px; }
-        .card { background:rgba(255,255,255,0.02); border:1px solid rgba(198,168,124,0.1); padding:20px; transition:0.4s; text-align: center; }
+        .card { background:rgba(255,255,255,0.02); border:1px solid rgba(198,168,124,0.1); padding:20px; transition:0.4s; text-align: center; border-radius: 4px; }
         .card:hover { transform:translateY(-10px); border-color:var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .card img { width:100%; height:350px; object-fit:cover; margin-bottom:20px; }
-        .card h3 { font-family:'Cormorant Garamond', serif; font-size:1.6rem; margin-bottom:15px; }
+        .card img { width:100%; height:350px; object-fit:cover; margin-bottom:20px; border-radius: 2px; }
+        .card h3 { font-family:'Cormorant Garamond', serif; font-size:1.6rem; margin-bottom:15px; letter-spacing: 1px; }
         
-        .order-btn { display:inline-block; padding:12px 30px; background:var(--gold-leaf); color:#000; text-decoration:none; font-weight:700; font-size:0.8rem; border-radius:2px; }
+        .order-btn { display:inline-block; padding:12px 30px; background:var(--gold-leaf); color:#000; text-decoration:none; font-weight:700; font-size:0.8rem; border-radius:2px; transition: 0.3s; letter-spacing: 1px; }
+        .order-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        footer { background: #050505; padding: 40px 5%; border-top: 1px solid #111; display: flex; justify-content: space-between; align-items: center; }
-        .social-footer { display: flex; gap: 20px; }
-        .social-footer a { color: #888; font-size: 1.2rem; transition: 0.3s; }
-        .social-footer a:hover { color: var(--gold); }
+        /* FOOTER */
+        footer { background: #050505; padding: 40px 5%; border-top: 1px solid #111; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .social-footer { display: flex; gap: 25px; }
+        .social-footer a { color: #888; font-size: 1.4rem; transition: 0.3s; }
+        .social-footer a:hover { color: var(--gold); transform: translateY(-3px); }
 
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px; z-index: 9999; }
+        /* WHATSAPP FLOAT */
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px; z-index: 9999; box-shadow: 0 10px 20px rgba(0,0,0,0.4); transition: 0.3s; }
+        .wa-float:hover { transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            footer { justify-content: center; text-align: center; flex-direction: column; }
+            .social-footer { order: -1; }
+        }
     </style>
 </head>
 <body>
@@ -42,30 +59,30 @@
     </nav>
 
     <div class="catalog">
-        <h1>Ürünlerimiz</h1>
+        <h1>Ürün Koleksiyonumuz</h1>
         <div class="grid">
             <div class="card">
-                <img src="cera/foto1.jpg">
+                <img src="cera/foto1.jpg" alt="Cera Premium 1KG">
                 <h3>Cera Premium 1KG</h3>
-                <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Premium%201KG%20hakkında%20bilgi%20almak%20istiyorum." class="order-btn">SİPARİŞ VER</a>
+                <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Premium%201KG%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="order-btn">SİPARİŞ VER / BİLGİ AL</a>
             </div>
             <div class="card">
-                <img src="cera/foto5.jpg">
+                <img src="cera/foto5.jpg" alt="Cera Atölye 5KG">
                 <h3>Cera Atölye 5KG</h3>
-                <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Atölye%205KG%20hakkında%20bilgi%20almak%20istiyorum." class="order-btn">SİPARİŞ VER</a>
+                <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20Atölye%205KG%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="order-btn">SİPARİŞ VER / BİLGİ AL</a>
             </div>
-        </div>
+            </div>
     </div>
 
     <footer>
         <div class="social-footer">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/seramiktozu" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100066599107208" target="_blank"><i class="fab fa-facebook-f"></i></a>
         </div>
         <p style="color: #444; font-size: 0.8rem;">© 2026 Cera Seramik. Tüm Hakları Saklıdır.</p>
     </footer>
 
-    <a href="https://wa.me/905303107320" class="wa-float">
+    <a href="https://wa.me/905303107320" class="wa-float" target="_blank">
         <i class="fab fa-whatsapp"></i> WhatsApp Sipariş
     </a>
 
