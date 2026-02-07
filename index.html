@@ -17,13 +17,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-color); color: #f5f5f5; font-family: 'Manrope', sans-serif; overflow-x: hidden; }
 
-        /* ALTIN YAZI STİLİ */
-        .gold-text {
-            background: var(--gold-leaf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 600;
-        }
+        .gold-text { background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; }
 
         /* NAVBAR */
         nav {
@@ -42,6 +36,23 @@
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('cera/foto15.jpg') center/cover fixed; }
         h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 10px; }
 
+        /* AÇIKLAMA BÖLÜMÜ (ALTIN VARAKLI KUTU) */
+        .description-section { padding: 100px 5%; background: #0f0f0f; }
+        .gold-border-box {
+            position: relative; padding: 40px; max-width: 1000px; margin: 0 auto;
+            text-align: center; background: rgba(255, 255, 255, 0.02);
+            border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1;
+            box-shadow: 0 0 20px rgba(191, 149, 63, 0.2);
+        }
+        .desc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 25px; display: inline-block; }
+        .desc-main-text { font-size: 1rem; color: #e0e0e0; line-height: 1.7; margin-bottom: 40px; text-align: justify; text-align-last: center; }
+        
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .feature-item { padding: 25px; background: rgba(0,0,0,0.4); border: 1px solid rgba(198, 168, 124, 0.2); text-align: center; }
+        .feature-item h3 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 10px; }
+        .feature-item p { font-size: 0.85rem; color: #bbb; }
+        .feature-item:nth-child(4) { grid-column: 2; }
+
         /* VIDEO */
         .video-wrapper { width: 100vw; height: 100vh; overflow: hidden; position: relative; background: #000; display: flex; align-items: center; justify-content: center; }
         .video-wrapper iframe { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; max-height: 100vh; border: none; }
@@ -50,7 +61,6 @@
         .scroll-area { height: 800vh; position: relative; background: #0a0a0a; }
         .sticky-wrap { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
         .track { display: flex; gap: 5vw; will-change: transform; align-items: center; padding: 0 45vw; }
-        
         .gallery-card { width: 45vh; height: 60vh; flex-shrink: 0; transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); opacity: 0.3; transform: scale(0.8); }
         .gallery-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 2px solid #333; }
         .gallery-card.active { transform: scale(1.2); opacity: 1; z-index: 100; }
@@ -59,31 +69,25 @@
         /* FOOTER */
         footer { background: #050505; padding: 60px 5% 30px; border-top: 1px solid #111; }
         .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 40px; }
-        .footer-brand h4 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 15px; }
-        .footer-brand p { color: #666; font-size: 0.9rem; max-width: 300px; line-height: 1.6; margin-bottom: 10px; }
-        
-        .footer-menu h4 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 15px; }
-        .footer-menu ul { list-style: none; }
+        .footer-brand h4 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 15px; }
+        .footer-brand p { color: #666; font-size: 0.9rem; max-width: 300px; line-height: 1.6; margin-bottom: 8px; }
         .footer-menu a { color: #888; text-decoration: none; font-size: 0.9rem; line-height: 2.5; transition: 0.3s; }
         .footer-menu a:hover { color: #fff; }
-
-        .footer-bar { border-top: 1px solid #111; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .footer-bar p { color: #444; font-size: 0.75rem; }
-        
         .social-links { display: flex; gap: 25px; }
         .social-links a { color: #888; font-size: 1.3rem; transition: 0.3s; }
         .social-links a:hover { color: var(--accent-color); transform: translateY(-3px); }
 
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; z-index: 9999; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: 0.3s; }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; z-index: 9999; box-shadow: 0 10px 20px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 10px; }
 
         @media (max-width: 768px) {
             .nav-phone { font-size: 0.7rem; }
             .nav-btn { font-size: 0.55rem; padding: 6px 8px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .feature-item:nth-child(4) { grid-column: span 1; }
             .gallery-card { width: 30vh; height: 40vh; }
             .track { padding: 0 35vw; }
             .footer-main { flex-direction: column; text-align: center; }
-            .footer-brand p { margin: 0 auto 10px auto; }
-            .footer-bar { flex-direction: column; text-align: center; }
+            .footer-brand p { margin: 0 auto 8px auto; }
         }
     </style>
 </head>
@@ -100,6 +104,23 @@
     <section class="hero">
         <p style="color:var(--accent-color); letter-spacing:5px; font-size: 0.8rem; margin-bottom: 10px;">PREMIUM QUALITY</p>
         <h1>Cera Seramik Tozu</h1>
+    </section>
+
+    <section class="description-section">
+        <div class="gold-border-box">
+            <h2 class="desc-title gold-text">Cera Seramik Tozu Nedir?</h2>
+            <p class="desc-main-text">
+                Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülmek suretiyle kullanılan özel bir kompozit döküm malzemesidir. 
+                Kendi hazırladığınız kalıplara dökerek, tamamen el emeğiyle yüksek kaliteli objeler üretebilirsiniz. 
+                Donduktan sonra temizleme veya zımpara gerektirmez, pürüzsüzdür.
+            </p>
+            <div class="features-grid">
+                <div class="feature-item"><h3>Mukavemet</h3><p>Dayanıklı ve uzun ömürlü.</p></div>
+                <div class="feature-item"><h3>Su Geçirmez</h3><p>Sıvı temasından etkilenmez.</p></div>
+                <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Boyayı mükemmel tutar.</p></div>
+                <div class="feature-item"><h3>Sıfır İşlem</h3><p>Pürüzsüz sonuç.</p></div>
+            </div>
+        </div>
     </section>
 
     <div class="video-wrapper">
@@ -143,7 +164,6 @@
                 </ul>
             </div>
         </div>
-        
         <div class="footer-bar">
             <div class="social-links">
                 <a href="https://www.instagram.com/seramiktozu?igsh=MWczbG1oOGx5cnNxeA==" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -153,9 +173,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/905303107320" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp Sipariş
-    </a>
+    <a href="https://wa.me/905303107320" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Sipariş</a>
 
     <script>
         const track = document.getElementById('galleryTrack');
