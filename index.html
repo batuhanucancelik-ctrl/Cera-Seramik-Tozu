@@ -2,24 +2,32 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Cera Seramik Tozu | Sanatın En Kaliteli Hali</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=Manrope:wght@200;300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Manrope:wght@300;400;600&display=swap');
 
         :root {
             --accent-color: #c6a87c;
             --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('cera/foto15.jpg') center/cover fixed no-repeat;
+            background-color: #000;
             color: #f5f5f5;
             font-family: 'Manrope', sans-serif;
             overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('cera/foto15.jpg') center/cover no-repeat;
+            z-index: -1;
         }
 
         .gold-text { background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; }
@@ -27,149 +35,105 @@
         nav {
             position: fixed; top: 0; width: 100%; padding: 1rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(15px);
+            z-index: 1000; background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
-        .brand-logo-img { height: 50px; width: auto; transition: 0.3s; }
-        .nav-right { display: flex; align-items: center; gap: 15px; margin-left: auto; }
-        .nav-phone { font-size: 1.1rem; text-decoration: none; margin-left: auto; }
+        .brand-logo-img { height: 50px; }
 
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: transparent; }
-        h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 10px; }
+        .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 10vw, 6rem); }
 
-        /* BİLGİ KUTULARI VE HOVER ANİMASYONU */
-        .description-section { padding: 100px 5%; background: transparent; }
+        .description-section { padding: 100px 5%; }
         .gold-border-box {
-            position: relative; padding: 40px; max-width: 1000px; margin: 0 auto;
-            text-align: center; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(5px);
-            border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1;
+            padding: 50px; max-width: 1100px; margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);
+            border: 2px solid transparent; border-image: var(--gold-leaf) 1;
         }
-        .desc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 25px; display: inline-block; }
-        .desc-main-text { font-size: 1.1rem; color: #e0e0e0; line-height: 1.7; margin-bottom: 40px; text-align: center; }
+        .desc-main-text { font-size: 1.1rem; color: #e0e0e0; line-height: 1.8; margin-bottom: 40px; text-align: center; }
 
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
-        
+        /* BİLGİ KUTULARI ANİMASYON STİLLERİ */
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+        @media (min-width: 992px) { .features-grid { grid-template-columns: repeat(4, 1fr); } }
+
         .feature-item { 
-            padding: 25px; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); 
-            border: 1px solid rgba(198, 168, 124, 0.2); text-align: center;
+            padding: 25px; border: 1px solid rgba(198, 168, 124, 0.2); text-align: center;
+            background: rgba(0,0,0,0.4); 
             opacity: 0; 
             transform: translateY(40px); 
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             cursor: pointer;
         }
         
         .feature-item.reveal { opacity: 1; transform: translateY(0); }
-
+        
         .feature-item:hover { 
-            transform: translateY(-12px) scale(1.05); 
+            transform: translateY(-12px) scale(1.03); 
             border-color: var(--accent-color);
-            background: rgba(198, 168, 124, 0.15);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            background: rgba(198, 168, 124, 0.1);
         }
 
         .feature-item h3 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 10px; }
-        .feature-item p { font-size: 0.85rem; color: #bbb; }
-        .feature-item:nth-child(4) { grid-column: 2; }
+        .feature-item p { font-size: 0.9rem; color: #bbb; }
 
-        /* VİDEO BÖLÜMÜ - MUTLAK TEMİZLİK VE DOKUNULMAZLIK */
-        .video-section { padding: 100px 5%; background: transparent; }
-        .video-container { 
-            position: relative; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            background: #000; 
-            border: 2px solid transparent; 
-            border-image: var(--gold-leaf); 
-            border-image-slice: 1; 
-            overflow: hidden; /* Dışarı taşan YouTube yazılarını keser */
-        }
-        
-        /* Video Maskeleme Katmanı */
-        .video-mask {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 oranını korur */
-            overflow: hidden;
-        }
+        /* VİDEO */
+        .video-section { padding: 80px 5%; }
+        .video-container { position: relative; max-width: 1000px; margin: 0 auto; border: 3px solid transparent; border-image: var(--gold-leaf) 1; overflow: hidden; }
+        .video-mask { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; }
+        .video-wrapper { position: absolute; top: -15%; left: -5%; width: 110%; height: 130%; pointer-events: none; }
+        .video-wrapper iframe { width: 100%; height: 100%; border: none; }
+        .video-shield { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; }
 
-        .video-wrapper { 
-            position: absolute;
-            top: -15%; /* Üstteki başlığı (Cera Seramik Tozu) dışarı iter */
-            left: -5%;
-            width: 110%; /* Yanlardan genişleterek YouTube logosunu dışarı iter */
-            height: 130%; /* Alttaki kontrolleri dışarı iter */
-            pointer-events: none;
-        }
+        /* GALERİ */
+        .scroll-area { height: 600vh; position: relative; }
+        .sticky-wrap { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; }
+        .track { display: flex; gap: 15vw; padding: 0 45vw; will-change: transform; align-items: center; }
+        .gallery-card { width: 35vh; height: 50vh; flex-shrink: 0; transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s; opacity: 0.2; transform: scale(0.8); }
+        .gallery-card.active { opacity: 1; transform: scale(1.4); }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; border: 2px solid transparent; border-image: var(--gold-leaf) 1; border-radius: 4px; }
 
-        .video-wrapper iframe { 
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        /* FOOTER */
+        .info-footer { padding: 60px 5%; background: rgba(5,5,5,0.95); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-top: 1px solid rgba(198,168,124,0.3); }
+        .info-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 25px; }
+        .footer-nav { list-style: none; }
+        .footer-nav li { margin-bottom: 12px; }
+        .footer-nav a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-nav a:hover { color: var(--accent-color); padding-left: 5px; }
+        .contact-list { list-style: none; }
+        .contact-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: #eee; }
+        .contact-list i { color: var(--accent-color); width: 20px; }
 
-        /* GEÇİLEMEZ ZIRH */
-        .video-shield {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%; 
-            z-index: 100;
-            background: transparent;
-        }
-
-        /* GALERİ SİSTEMİ */
-        .scroll-area { height: 1000vh; position: relative; background: transparent; }
-        .sticky-wrap { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
-        .track { display: flex; gap: 15vw; will-change: transform; align-items: center; padding-left: 50vw; padding-right: 50vw; }
-        .gallery-card { 
-            width: 35vh; height: 50vh; flex-shrink: 0; 
-            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s; 
-            opacity: 0.2; transform: scale(0.75); 
-            display: flex; align-items: center; justify-content: center;
-        }
-        .gallery-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 2px solid #333; }
-        .gallery-card.active { transform: scale(1.4); opacity: 1; z-index: 100; }
-        .gallery-card.active img { border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1; }
-
-        footer { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(10px); padding: 60px 5% 30px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer-brand h4 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 15px; }
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; z-index: 9999; display: flex; align-items: center; gap: 10px; }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; z-index: 9999; display: flex; align-items: center; gap: 10px; font-weight: bold; }
 
         @media (max-width: 768px) {
-            .scroll-area { display: none; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .feature-item:nth-child(4) { grid-column: span 1; }
+            .scroll-area { height: auto; }
+            .sticky-wrap { position: relative; height: auto; display: block; }
+            .track { flex-direction: column; padding: 50px 10%; gap: 60px; transform: none !important; }
+            .gallery-card { width: 100%; height: 45vh; opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html"><img src="cera/logo.png" alt="Cera Logo" class="brand-logo-img"></a>
-        <div class="nav-right">
-            <a href="tel:05303107320" class="nav-phone gold-text">0530 310 73 20</a>
-        </div>
+        <img src="cera/logo.png" alt="Cera Logo" class="brand-logo-img">
+        <a href="tel:05303107320" class="gold-text" style="text-decoration:none;">0530 310 73 20</a>
     </nav>
 
     <section class="hero">
-        <h1 style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Cera Seramik Tozu</h1>
+        <h1 class="gold-text">Cera Seramik Tozu</h1>
     </section>
 
     <section class="description-section">
         <div class="gold-border-box">
-            <h2 class="desc-title gold-text">Cera Seramik Tozu Nedir?</h2>
-            <p class="desc-main-text">Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülmek suretiyle kullanılan özel bir kompozit döküm malzemesidir. Kendi hazırladığınız kalıplara Cera seramik tozunu dökerek, tamamen el emeğiyle yüksek kaliteli objeler üretilirsiniz.<br><br>
-            Cera ile oluşturulan parçalar:<br>
-            <strong>Yüksek mukavemetlidir | Su geçirmez özelliktedir | Boyayı güçlü şekilde tutar</strong><br><br>
-            Kendiliğinden tesviye özelliği sayesinde kalıba döküldüğünde en ince detaylara dahi nüfuz eder. Bu sayede donduktan sonra temizleme, zımpara veya taşlama gibi işlemlere ihtiyaç duymazsınız. Pratik ve profesyonel sonuçlar için idealdir.</p>
+            <h2 class="gold-text" style="font-family:'Cormorant Garamond'; font-size:3rem; text-align:center; margin-bottom:30px;">Cera Seramik Tozu Nedir?</h2>
+            <p class="desc-main-text">Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülmek suretiyle kullanılan özel bir kompozit döküm malzemesidir. Kendi hazırladığınız kalıplara Cera seramik tozunu dökerek, tamamen el emeğiyle yüksek kaliteli objeler üretilirsiniz. Cera ile oluşturulan parçalar yüksek mukavemetlidir, su geçirmez özelliktedir ve boyayı güçlü şekilde tutar. Kendiliğinden tesviye özelliği sayesinde en ince detaylara dahi nüfuz eder.</p>
             
             <div class="features-grid">
-                <div class="feature-item"><h3>Mukavemet</h3><p>Dayanıklı dökümler.</p></div>
-                <div class="feature-item"><h3>Su Geçirmez</h3><p>Sıvı direnci.</p></div>
-                <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Boya dostu.</p></div>
-                <div class="feature-item"><h3>Sıfır İşlem</h3><p>Pürüzsüz yüzey.</p></div>
+                <div class="feature-item"><h3>Mukavemet</h3><p>Yüksek dirençli dökümler.</p></div>
+                <div class="feature-item"><h3>Su Geçirmez</h3><p>Sıvı ile temasa uygun.</p></div>
+                <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Mükemmel boya emilimi.</p></div>
+                <div class="feature-item"><h3>Sıfır İşlem</h3><p>Zımpara gerektirmez.</p></div>
             </div>
         </div>
     </section>
@@ -179,13 +143,13 @@
             <div class="video-shield"></div>
             <div class="video-mask">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&showinfo=0" allow="autoplay; encrypted-media"></iframe>
+                    <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&showinfo=0&rel=0&modestbranding=1" allow="autoplay; encrypted-media"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="scroll-area">
+    <div class="scroll-area" id="scrollArea">
         <div class="sticky-wrap">
             <div class="track" id="galleryTrack">
                 <div class="gallery-card"><img src="cera/foto1.jpg"></div>
@@ -196,41 +160,47 @@
                 <div class="gallery-card"><img src="cera/foto6.jpg"></div>
                 <div class="gallery-card"><img src="cera/foto7.jpg"></div>
                 <div class="gallery-card"><img src="cera/foto8.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto9.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto10.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto11.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto12.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto13.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto14.jpg"></div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-main">
-            <div class="footer-brand">
-                <h4>CERA SERAMİK</h4>
-                <p>Hayallerinizi şekillendiren yüksek mukavemetli döküm tozları.</p>
-                <p>© 2020 Cera Seramik. Tüm Hakları Saklıdır.</p>
-            </div>
+    <footer class="info-footer">
+        <div class="info-box">
+            <h3 class="gold-text">Hızlı Menü</h3>
+            <ul class="footer-nav">
+                <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
+                <li><a href="#scrollArea">Galeri</a></li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <h3 class="gold-text">İletişim Bilgileri</h3>
+            <ul class="contact-list">
+                <li><i class="fas fa-phone"></i> 0530 310 73 20</li>
+                <li><i class="fas fa-envelope"></i> seramiktozu@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt"></i> İzmir, Türkiye</li>
+            </ul>
         </div>
     </footer>
 
-    <a href="https://wa.me/905303107320?text=Merhaba,%20Cera%20seramik%20tozu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Sipariş</a>
+    <a href="https://wa.me/905303107320" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp Sipariş
+    </a>
 
     <script>
-        const featureItems = document.querySelectorAll('.feature-item');
-        const revealOnScroll = new IntersectionObserver((entries) => {
+        // BİLGİ KUTULARI ANİMASYONU (REVEAL)
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('reveal');
                 }
             });
         }, { threshold: 0.15 });
-        featureItems.forEach(item => revealOnScroll.observe(item));
 
+        document.querySelectorAll('.feature-item').forEach(item => observer.observe(item));
+
+        // GALERİ KAYDIRMA SİSTEMİ
         const track = document.getElementById('galleryTrack');
-        const scrollArea = document.querySelector('.scroll-area');
+        const scrollArea = document.getElementById('scrollArea');
         const cards = document.querySelectorAll('.gallery-card');
 
         window.addEventListener('scroll', () => {
@@ -238,18 +208,18 @@
                 const areaTop = scrollArea.offsetTop;
                 const areaHeight = scrollArea.offsetHeight - window.innerHeight;
                 const scrolled = window.scrollY - areaTop;
+
                 if (scrolled >= 0 && scrolled <= areaHeight) {
                     const progress = scrolled / areaHeight;
                     const trackWidth = track.scrollWidth - window.innerWidth;
-                    track.style.transform = `translate3d(-${progress * trackWidth}px, 0, 0)`;
-                    const centerX = window.innerWidth / 2;
-                    let activeCardFound = false;
+                    track.style.transform = `translateX(-${progress * trackWidth}px)`;
+
                     cards.forEach(card => {
                         const rect = card.getBoundingClientRect();
-                        const cardCenter = rect.left + rect.width / 2;
-                        if (!activeCardFound && Math.abs(centerX - cardCenter) < 250) {
+                        const center = window.innerWidth / 2;
+                        const cardMid = rect.left + rect.width / 2;
+                        if (Math.abs(cardMid - center) < window.innerWidth / 5) {
                             card.classList.add('active');
-                            activeCardFound = true; 
                         } else {
                             card.classList.remove('active');
                         }
