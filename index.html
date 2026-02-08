@@ -59,15 +59,26 @@
 
         /* GALERİ SİSTEMİ - PC */
         .scroll-area { height: 1000vh; position: relative; background: transparent; }
-        .sticky-wrap { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
+        .sticky-wrap { 
+            position: sticky; 
+            top: 0; 
+            height: 100vh; 
+            overflow: hidden; 
+            display: flex; 
+            align-items: center; /* Dikeyde tam orta */
+            justify-content: center;
+        }
         .track { display: flex; gap: 6vw; will-change: transform; align-items: center; padding: 0 45vw; }
         .gallery-card { 
-            width: 45vh; height: 60vh; flex-shrink: 0; 
-            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s; 
+            width: 40vh; height: 55vh; flex-shrink: 0; 
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s; 
             opacity: 0.4; transform: scale(0.7); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .gallery-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 2px solid #333; }
-        .gallery-card.active { transform: scale(1.5); opacity: 1; z-index: 100; }
+        .gallery-card.active { transform: scale(1.3); opacity: 1; z-index: 100; } /* Büyüme oranı 1.3'e çekildi */
         .gallery-card.active img { border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1; }
 
         /* GALERİ SİSTEMİ - MOBİL */
@@ -77,12 +88,12 @@
         .mobile-gallery-track { display: flex; gap: 25px; padding: 40px 10%; scroll-snap-type: x mandatory; }
         .mobile-gallery-card { 
             flex-shrink: 0; width: 75vw; height: 50vh; scroll-snap-align: center;
-            transition: transform 0.5s ease; transform: scale(0.85); opacity: 0.6;
+            transition: transform 0.4s ease; transform: scale(0.8); opacity: 0.5;
         }
         .mobile-gallery-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1; }
         .mobile-gallery-card.active { transform: scale(1.2); opacity: 1; }
 
-        /* FOOTER - ORİJİNAL HALİ */
+        /* FOOTER */
         footer { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(10px); padding: 60px 5% 30px; border-top: 1px solid rgba(255,255,255,0.1); }
         .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 40px; }
         .footer-brand h4, .footer-menu h4 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 15px; }
@@ -230,11 +241,15 @@
                     track.style.transform = `translate3d(-${progress * maxMove}px, 0, 0)`;
                     
                     const centerX = window.innerWidth / 2;
+                    let activeCardFound = false;
+                    
                     cards.forEach(card => {
                         const rect = card.getBoundingClientRect();
                         const cardCenter = rect.left + rect.width / 2;
-                        if (Math.abs(centerX - cardCenter) < window.innerWidth / 5) {
+                        
+                        if (!activeCardFound && Math.abs(centerX - cardCenter) < 100) {
                             card.classList.add('active');
+                            activeCardFound = true; 
                         } else {
                             card.classList.remove('active');
                         }
@@ -248,11 +263,13 @@
 
         function updateMobile() {
             const centerX = window.innerWidth / 2;
+            let activeMobileFound = false;
             mobileCards.forEach(card => {
                 const rect = card.getBoundingClientRect();
                 const cardCenter = rect.left + rect.width / 2;
-                if (Math.abs(centerX - cardCenter) < 100) {
+                if (!activeMobileFound && Math.abs(centerX - cardCenter) < 80) {
                     card.classList.add('active');
+                    activeMobileFound = true;
                 } else {
                     card.classList.remove('active');
                 }
