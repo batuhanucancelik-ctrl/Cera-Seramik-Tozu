@@ -6,181 +6,200 @@
     <title>Cera Seramik Tozu | Sanatın En Kaliteli Hali</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* 2035 Modern Font Entegrasyonu */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=Manrope:wght@200;300;400;600&display=swap');
+        /* Modern ve Sanatsal Font Entegrasyonu */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@200;300;400;600&display=swap');
 
         :root {
-            --bg-color: #0f0f0f; /* Artık kullanılmıyor, global background aktif */
             --accent-color: #c6a87c;
             --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* GLOBAL ARKA PLAN AYARI - İstenilen Değişiklik */
         body {
-            /* Ana görseli tüm body'ye sabitliyoruz. Okunabilirlik için koyu overlay eklendi. */
             background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('cera/foto15.jpg') center/cover fixed no-repeat;
             color: #f5f5f5;
             font-family: 'Manrope', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .gold-text { background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; }
 
-        /* NAVBAR */
+        /* NAVBAR - Telefon Sağa Yaslandı ve Büyütüldü */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 1.2rem 5%;
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; 
-            background: rgba(15, 15, 15, 0.8); /* Arka planı biraz daha şeffaflaştırdık */
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 1000; background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(198, 168, 124, 0.15);
         }
-        .brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.2em; color: #fff; text-decoration: none; }
-        .nav-right { display: flex; align-items: center; gap: 15px; }
-        .nav-phone { font-size: 0.85rem; text-decoration: none; }
-        /* .nav-btn kaldırıldı */
+        .brand-logo { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.8rem; 
+            font-weight: 700;
+            letter-spacing: 0.05em; 
+            color: #fff; 
+            text-decoration: none; 
+        }
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
+        .nav-phone { 
+            font-size: 1.2rem; /* Büyütüldü */
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-        /* HERO SECTION */
+        /* HERO - Premium Quality kaldırıldı, Font değiştirildi */
         .hero {
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background: transparent; /* Arka plan şeffaf yapıldı */
+            background: transparent;
         }
-        h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 10px; }
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(3rem, 10vw, 6.5rem); 
+            font-weight: 700; 
+            margin-bottom: 10px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
 
-        /* AÇIKLAMA BÖLÜMÜ */
-        .description-section {
-            padding: 100px 5%;
-            background: transparent; /* Arka plan şeffaf yapıldı */
+        /* ORTAK KUTU TASARIMI (Video ve Bilgi Kutusu İçin) */
+        .content-container {
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            background: transparent;
         }
+
         .gold-border-box {
-            position: relative; padding: 40px; max-width: 1000px; margin: 0 auto;
+            position: relative; padding: 45px; width: 100%; max-width: 1000px;
             text-align: center; 
-            background: rgba(255, 255, 255, 0.03); /* Hafif bir cam efekti verildi */
-            backdrop-filter: blur(5px);
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(10px);
             border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1;
+            box-shadow: var(--box-shadow);
         }
-        .desc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 25px; display: inline-block; }
-        .desc-main-text { font-size: 1rem; color: #e0e0e0; line-height: 1.7; margin-bottom: 40px; text-align: justify; text-align-last: center; }
+        .desc-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 25px; display: inline-block; }
+        .desc-main-text { font-size: 1.1rem; color: #e0e0e0; line-height: 1.8; margin-bottom: 40px; text-align: justify; text-align-last: center; }
         
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
         .feature-item { 
-            padding: 25px; 
-            background: rgba(0,0,0,0.5); /* Kutu arka planları yarı şeffaf */
-            backdrop-filter: blur(5px);
+            padding: 20px; background: rgba(0,0,0,0.4); 
             border: 1px solid rgba(198, 168, 124, 0.2); text-align: center; 
         }
-        .feature-item h3 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 10px; }
-        .feature-item p { font-size: 0.85rem; color: #bbb; }
-        .feature-item:nth-child(4) { grid-column: 2; }
+        .feature-item h3 { font-family: 'Playfair Display', serif; color: var(--accent-color); margin-bottom: 8px; font-size: 1.1rem; }
+        .feature-item p { font-size: 0.8rem; color: #bbb; }
 
-        /* VIDEO */
-        .video-wrapper { width: 100vw; height: 100vh; overflow: hidden; position: relative; background: transparent; /* Şeffaf */ }
-        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent; }
-        .video-wrapper iframe { 
-            position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; 
-            min-height: 100vh; min-width: 177.77vh; transform: translate(-50%, -50%); 
-            border: none; pointer-events: none; 
+        /* VIDEO - İstenilen Boyut ve Çerçeve Düzenlemesi */
+        .video-box {
+            width: 100%; max-width: 1000px; /* Bilgi kutusu ile aynı genişlik */
+            aspect-ratio: 16 / 9; /* YouTube standart oranı */
+            position: relative;
+            border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1;
+            background: #000;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        .video-box iframe {
+            width: 100%; height: 100%;
+            border: none;
         }
 
-        /* SCROLL GALLERY */
-        .scroll-area { height: 900vh; position: relative; background: transparent; /* Şeffaf */ }
-        .sticky-wrap { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
-        .track { display: flex; gap: 5vw; will-change: transform; align-items: center; padding: 0 45vw; }
-        .gallery-card { width: 45vh; height: 60vh; flex-shrink: 0; transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); opacity: 0.5; transform: scale(0.8); }
-        .gallery-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 2px solid #333; }
-        .gallery-card.active { transform: scale(1.2); opacity: 1; z-index: 100; }
-        .gallery-card.active img { border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1; }
+        /* GALERİ - Masaüstü vs Mobil Ayrımı */
+        .scroll-area { position: relative; background: transparent; }
+        
+        /* PC Scroll Ayarı */
+        @media (min-width: 769px) {
+            .scroll-area { height: 600vh; }
+            .sticky-wrap { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
+            .track { display: flex; gap: 4vw; will-change: transform; align-items: center; padding: 0 10vw; }
+            .gallery-card { width: 50vh; height: 65vh; flex-shrink: 0; transition: transform 0.5s; }
+            .gallery-card img { width: 100%; height: 100%; object-fit: cover; border: 1px solid #333; }
+            .gallery-card.active img { border: 2px solid transparent; border-image: var(--gold-leaf); border-image-slice: 1; transform: scale(1.05); }
+        }
+
+        /* MOBİL - Parmakla Kaydırma Ayarı */
+        @media (max-width: 768px) {
+            .scroll-area { height: auto; padding: 50px 0; }
+            .sticky-wrap { position: relative; height: auto; overflow: visible; }
+            .track { 
+                display: flex; overflow-x: auto; gap: 20px; padding: 20px 5%;
+                scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            }
+            .gallery-card { 
+                width: 80vw; height: 50vh; flex-shrink: 0; 
+                scroll-snap-align: center; 
+            }
+            .gallery-card img { width: 100%; height: 100%; object-fit: cover; border: 1px solid var(--accent-color); }
+            
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-phone { font-size: 1rem; }
+        }
 
         /* FOOTER */
         footer { 
-            background: rgba(5, 5, 5, 0.85); /* Footer için hafif koyu şeffaf zemin */
-            backdrop-filter: blur(10px);
-            padding: 60px 5% 30px; border-top: 1px solid rgba(255,255,255,0.1); 
+            background: rgba(10, 10, 10, 0.95); padding: 60px 5% 30px; 
+            border-top: 1px solid rgba(198, 168, 124, 0.2); 
         }
-        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 40px; }
-        .footer-brand h4, .footer-menu h4 { font-family: 'Cormorant Garamond', serif; color: var(--accent-color); margin-bottom: 15px; }
-        .footer-brand p { color: #bbb; font-size: 0.9rem; max-width: 300px; line-height: 1.6; margin-bottom: 8px; }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-brand h4, .footer-menu h4 { font-family: 'Playfair Display', serif; color: var(--accent-color); margin-bottom: 20px; }
         .footer-menu ul { list-style: none; }
-        .footer-menu a { color: #bbb; text-decoration: none; font-size: 0.9rem; line-height: 2.5; transition: 0.3s; }
-        .footer-menu a:hover { color: #fff; }
-        .footer-bar { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .social-links { display: flex; gap: 25px; }
-        .social-links a { color: #bbb; font-size: 1.3rem; transition: 0.3s; }
-        .social-links a:hover { color: var(--accent-color); }
-
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; z-index: 9999; display: flex; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-
-        /* RESPONSIVE AYARLAR */
-        @media (max-width: 768px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .feature-item:nth-child(4) { grid-column: span 1; }
-            
-            /* Video Mobil Ayar */
-            .video-wrapper { height: auto; aspect-ratio: 16 / 9; width: 100%; display: flex; align-items: center; justify-content: center; }
-            .video-wrapper iframe { position: relative; width: 100%; height: 100%; top: 0; left: 0; transform: none; }
-
-            /* Footer Mobil Orta Hizalama */
-            .footer-main { flex-direction: column; text-align: center; align-items: center; }
-            .footer-brand p { margin: 0 auto 8px auto; }
-            .footer-bar { flex-direction: column; text-align: center; gap: 20px; }
-            .social-links { margin: 0 auto; justify-content: center; }
-            
-            .gallery-card { width: 30vh; height: 40vh; }
-            .track { padding: 0 35vw; }
-        }
+        .footer-menu a { color: #888; text-decoration: none; line-height: 2.5; transition: 0.3s; }
+        .footer-menu a:hover { color: #fff; padding-left: 5px; }
+        
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; z-index: 9999; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s; }
+        .wa-float:hover { transform: translateY(-5px); background: #20ba5a; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="brand-logo">CERA SERAMİK</a>
+        <a href="index.html" class="brand-logo">Cera Seramik</a>
         <div class="nav-right">
             <a href="tel:05303107320" class="nav-phone gold-text">0530 310 73 20</a>
-            </div>
+        </div>
     </nav>
 
     <section class="hero">
-        <p style="color:var(--accent-color); letter-spacing:5px; font-size: 0.8rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">PREMIUM QUALITY</p>
-        <h1 style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Cera Seramik Tozu</h1>
+        <h1 class="gold-text">Cera Seramik Tozu</h1>
     </section>
 
-    <section class="description-section">
-        <div class="gold-border-box">
+    <div class="content-container">
+        <section class="gold-border-box">
             <h2 class="desc-title gold-text">Cera Seramik Tozu Nedir?</h2>
             <p class="desc-main-text">Cera seramik döküm tozu, belirli oranda su ile karıştırılarak kalıplara dökülmek suretiyle kullanılan özel bir kompozit döküm malzemesidir. Kendi hazırladığınız kalıplara dökerek, tamamen el emeğiyle yüksek kaliteli objeler üretebilirsiniz.</p>
             <div class="features-grid">
-                <div class="feature-item"><h3>Mukavemet</h3><p>Dayanıklı ve uzun ömürlü dökümler.</p></div>
-                <div class="feature-item"><h3>Su Geçirmez</h3><p>Sıvı temasından kesinlikle etkilenmez.</p></div>
-                <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Tüm boya türlerini mükemmel tutar.</p></div>
-                <div class="feature-item"><h3>Sıfır İşlem</h3><p>Kalıptan çıktığı gibi pürüzsüz sonuç.</p></div>
+                <div class="feature-item"><h3>Mukavemet</h3><p>Dayanıklı döküm.</p></div>
+                <div class="feature-item"><h3>Su Geçirmez</h3><p>Sıvı dirençli.</p></div>
+                <div class="feature-item"><h3>Güçlü Tutuş</h3><p>Boya dostu.</p></div>
+                <div class="feature-item"><h3>Sıfır İşlem</h3><p>Pürüzsüz yüzey.</p></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="video-wrapper">
-        <div class="video-overlay"></div>
-        <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allow="autoplay; encrypted-media"></iframe>
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?controls=1&modestbranding=1&rel=0" allowfullscreen></iframe>
+        </div>
     </div>
 
     <div class="scroll-area">
         <div class="sticky-wrap">
             <div class="track" id="galleryTrack">
-                <div class="gallery-card"><img src="cera/foto1.jpg" alt="Seramik Örnek 1"></div>
-                <div class="gallery-card"><img src="cera/foto2.jpg" alt="Seramik Örnek 2"></div>
-                <div class="gallery-card"><img src="cera/foto3.jpg" alt="Seramik Örnek 3"></div>
-                <div class="gallery-card"><img src="cera/foto4.jpg" alt="Seramik Örnek 4"></div>
-                <div class="gallery-card"><img src="cera/foto5.jpg" alt="Seramik Örnek 5"></div>
-                <div class="gallery-card"><img src="cera/foto6.jpg" alt="Seramik Örnek 6"></div>
-                <div class="gallery-card"><img src="cera/foto7.jpg" alt="Seramik Örnek 7"></div>
-                <div class="gallery-card"><img src="cera/foto8.jpg" alt="Seramik Örnek 8"></div>
-                <div class="gallery-card"><img src="cera/foto9.jpg" alt="Seramik Örnek 9"></div>
-                <div class="gallery-card"><img src="cera/foto10.jpg" alt="Seramik Örnek 10"></div>
-                <div class="gallery-card"><img src="cera/foto11.jpg" alt="Seramik Örnek 11"></div>
-                <div class="gallery-card"><img src="cera/foto12.jpg" alt="Seramik Örnek 12"></div>
-                <div class="gallery-card"><img src="cera/foto13.jpg" alt="Seramik Örnek 13"></div>
-                <div class="gallery-card"><img src="cera/foto14.jpg" alt="Seramik Örnek 14"></div>
+                <div class="gallery-card"><img src="cera/foto1.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto2.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto3.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto4.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto5.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto6.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto7.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto8.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto9.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto10.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto11.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto12.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto13.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto14.jpg"></div>
             </div>
         </div>
     </div>
@@ -190,8 +209,8 @@
             <div class="footer-brand">
                 <h4>CERA SERAMİK</h4>
                 <p>Hayallerinizi şekillendiren yüksek mukavemetli döküm tozları.</p>
-                <p>İletişim: <a href="tel:05303107320" class="gold-text" style="text-decoration:none;">0530 310 73 20</a></p>
-                <p>E-posta: <a href="mailto:seramiktozu@gmail.com" style="color:#bbb; text-decoration:none;">seramiktozu@gmail.com</a></p>
+                <p>İletişim: <span class="gold-text">0530 310 73 20</span></p>
+                <p>E-posta: seramiktozu@gmail.com</p>
             </div>
             <div class="footer-menu">
                 <h4>HIZLI MENÜ</h4>
@@ -201,66 +220,56 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bar">
+        <div class="footer-bar" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: center;">
             <div class="social-links">
-                <a href="https://www.instagram.com/seramiktozu" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100066599107208" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/seramiktozu" style="color: #bbb; margin-right: 20px; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: #bbb; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
             </div>
-            <p>© 2035 Cera Seramik. Tüm Hakları Saklıdır.</p>
+            <p>© 2035 Cera Seramik. Sanatın Geleceği.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/905303107320" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Sipariş</a>
+    <a href="https://wa.me/905303107320" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp Sipariş
+    </a>
 
     <script>
         const track = document.getElementById('galleryTrack');
         const scrollArea = document.querySelector('.scroll-area');
         const cards = document.querySelectorAll('.gallery-card');
 
-        // Performans için requestAnimationFrame kullanımı
-        let isScrolling = false;
-
-        function onScroll() {
-            if (!isScrolling) {
-                window.requestAnimationFrame(() => {
-                    updateGallery();
-                    isScrolling = false;
-                });
-                isScrolling = true;
-            }
-        }
-
         function updateGallery() {
-            const areaTop = scrollArea.offsetTop;
-            const areaHeight = scrollArea.offsetHeight - window.innerHeight;
-            const scrolled = window.scrollY - areaTop;
-            
-            if (scrolled >= -window.innerHeight && scrolled <= areaHeight + window.innerHeight) {
-                const progress = Math.max(0, Math.min(1, scrolled / areaHeight));
-                const maxMove = track.scrollWidth - window.innerWidth;
-                track.style.transform = `translate3d(-${progress * maxMove}px, 0, 0)`; // 3D transform for GPU acceleration
+            // Sadece Masaüstü (width > 768px) için scroll tetiklemeli kaydırma çalışsın
+            if (window.innerWidth > 768) {
+                const areaTop = scrollArea.offsetTop;
+                const areaHeight = scrollArea.offsetHeight - window.innerHeight;
+                const scrolled = window.scrollY - areaTop;
                 
-                const centerX = window.innerWidth / 2;
-                let closestCard = null;
-                let closestDistance = Infinity;
-                
-                cards.forEach((card) => {
-                    const rect = card.getBoundingClientRect();
-                    const cardCenterX = rect.left + rect.width / 2;
-                    const dist = Math.abs(centerX - cardCenterX);
-                    if (dist < closestDistance) { closestDistance = dist; closestCard = card; }
-                });
-                
-                cards.forEach(card => card.classList.remove('active'));
-                if (closestCard) closestCard.classList.add('active');
+                if (scrolled >= 0 && scrolled <= areaHeight) {
+                    const progress = scrolled / areaHeight;
+                    const maxMove = track.scrollWidth - window.innerWidth;
+                    track.style.transform = `translateX(-${progress * maxMove}px)`;
+                    
+                    // Aktif kart büyütme efekti
+                    const centerX = window.innerWidth / 2;
+                    cards.forEach(card => {
+                        const rect = card.getBoundingClientRect();
+                        const cardCenter = rect.left + rect.width / 2;
+                        if (Math.abs(centerX - cardCenter) < rect.width / 2) {
+                            card.classList.add('active');
+                        } else {
+                            card.classList.remove('active');
+                        }
+                    });
+                }
+            } else {
+                // Mobil için transformu sıfırla (CSS scroll-snap devralır)
+                track.style.transform = 'none';
             }
         }
-        
-        // Event listener optimizasyonu
-        window.addEventListener('scroll', onScroll, { passive: true });
+
+        window.addEventListener('scroll', updateGallery);
         window.addEventListener('resize', updateGallery);
-        
-        // İlk yüklemede çalıştır
         updateGallery();
     </script>
 </body>
