@@ -8,88 +8,64 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Manrope:wght@300;400;600&display=swap');
 
-        /* --- TEMEL KORUMA --- */
-        * { 
-            margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; 
-            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; 
-        }
-
-        :root {
-            --accent-color: #c6a87c;
-            --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-        }
-
+        /* --- TEMEL AYARLAR --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; }
+        :root { --accent-color: #c6a87c; --gold-leaf: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); }
         body { background-color: #000; color: #f5f5f5; font-family: 'Manrope', sans-serif; overflow-x: hidden; }
-
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('cera/foto15.jpg') center/cover no-repeat;
-            z-index: -1;
-        }
-
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('cera/foto15.jpg') center/cover no-repeat; z-index: -1; }
         .gold-text { background: var(--gold-leaf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; }
 
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        /* --- NAV & HERO --- */
+        nav { position: fixed; top: 0; width: 100%; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .brand-logo-img { height: 40px; }
-
         .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
         h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 6rem); }
 
+        /* --- AÇIKLAMA KUTULARI (GELDİ) --- */
+        .description-section { padding: 80px 5%; }
+        .gold-border-box { padding: 40px; max-width: 1100px; margin: 0 auto; background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); border: 2px solid transparent; border-image: var(--gold-leaf) 1; text-align: center; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .feature-item { padding: 20px; border: 1px solid rgba(198, 168, 124, 0.2); background: rgba(10, 10, 10, 0.6); }
+        .feature-item h3 { color: var(--accent-color); font-family: 'Cormorant Garamond', serif; margin-bottom: 10px; }
+
+        /* --- VİDEO (GELDİ) --- */
+        .video-section { padding: 50px 5%; }
+        .video-container { position: relative; max-width: 800px; margin: 0 auto; border: 2px solid transparent; border-image: var(--gold-leaf) 1; overflow: hidden; }
+        .video-mask { position: relative; width: 100%; padding-bottom: 56.25%; }
+        .video-wrapper { position: absolute; top: -10%; left: -5%; width: 110%; height: 120%; pointer-events: none; }
+        .video-wrapper iframe { width: 100%; height: 100%; border: none; }
+
         /* --- GALERİ MANTIĞI --- */
         .scroll-area { position: relative; width: 100%; }
-        
-        /* PC STICKY AYARI */
         @media (min-width: 769px) {
             .scroll-area { height: 800vh; }
             .sticky-wrap { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; }
-            .track { display: flex; gap: 15vw; padding: 0 45vw; will-change: transform; align-items: center; }
+            .track { display: flex; gap: 10vw; padding: 0 45vw; will-change: transform; align-items: center; }
+            .gallery-card { width: 40vh; height: 50vh; opacity: 0.1; transform: scale(0.8); transition: 0.6s; }
         }
-
-        /* MOBİL SERBEST KAYDIRMA AYARI */
         @media (max-width: 768px) {
-            .scroll-area { height: auto; padding: 50px 0; }
-            .sticky-wrap { overflow-x: auto; overflow-y: hidden; display: flex; align-items: center; padding: 60px 0; scroll-snap-type: x proximity; scrollbar-width: none; }
+            .scroll-area { height: auto; padding: 40px 0; }
+            .sticky-wrap { overflow-x: auto; display: flex; align-items: center; padding: 50px 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
             .sticky-wrap::-webkit-scrollbar { display: none; }
-            .track { display: flex; gap: 40px; padding: 0 20vw; }
+            .track { display: flex; gap: 30px; padding: 0 15vw; }
+            .gallery-card { width: 70vw; height: 40vh; scroll-snap-align: center; opacity: 0.3; transform: scale(0.85); transition: 0.5s; }
         }
-
-        .gallery-card { 
-            flex-shrink: 0; 
-            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.6s ease; 
-            opacity: 0.2; transform: scale(0.8); 
-        }
-        
-        /* PC Kart Boyutu */
-        @media (min-width: 769px) { .gallery-card { width: 40vh; height: 50vh; } }
-        /* Mobil Kart Boyutu */
-        @media (max-width: 768px) { .gallery-card { width: 65vw; height: 45vh; scroll-snap-align: center; } }
-
-        .gallery-card.active { opacity: 1; transform: scale(1.2); z-index: 10; }
-        .gallery-card img { width: 100%; height: 100%; object-fit: cover; border: 2px solid transparent; border-image: var(--gold-leaf) 1; border-radius: 5px; }
+        .gallery-card.active { opacity: 1 !important; transform: scale(1.15) !important; z-index: 10; }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; border: 1.5px solid #c6a87c; border-radius: 8px; }
 
         /* --- FOOTER --- */
-        .info-footer { padding: 80px 8%; background: rgba(5, 5, 5, 0.98); border-top: 1px solid rgba(198,168,124,0.15); }
-        .footer-container { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; }
-
-        @media (max-width: 768px) {
-            .footer-container { flex-direction: column; align-items: center; text-align: center; gap: 50px; }
-            .info-box { width: 100%; display: flex; flex-direction: column; align-items: center; }
-            .footer-nav { display: flex; flex-direction: column; align-items: center; }
-            .footer-nav a { margin-bottom: 10px; text-decoration: none; color: #888; }
-            .contact-list { list-style: none; display: flex; flex-direction: column; align-items: center; padding: 0; }
-            .contact-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
-            .contact-list i { color: var(--accent-color); }
-        }
-
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; z-index: 10001; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        .info-footer { padding: 60px 5%; background: rgba(5, 5, 5, 0.98); border-top: 1px solid rgba(198,168,124,0.15); text-align: center; }
+        .footer-container { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        @media (min-width: 769px) { .footer-container { flex-direction: row; justify-content: space-between; text-align: left; align-items: flex-start; } .info-box { align-items: flex-start !important; } }
+        .info-box { display: flex; flex-direction: column; align-items: center; }
+        .footer-nav a { color: #888; text-decoration: none; margin-bottom: 10px; display: block; }
+        .contact-list { list-style: none; padding: 0; }
+        .contact-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; justify-content: center; }
+        @media (min-width: 769px) { .contact-list li { justify-content: flex-start; } }
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; z-index: 10001; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
     <nav>
         <img src="cera/logo.png" alt="Cera Logo" class="brand-logo-img">
@@ -97,6 +73,28 @@
     </nav>
 
     <section class="hero"><h1 class="gold-text">Cera Seramik Tozu</h1></section>
+
+    <section class="description-section">
+        <div class="gold-border-box">
+            <h2 class="gold-text" style="font-size:2rem; margin-bottom:20px;">Cera Seramik Tozu Nedir?</h2>
+            <p style="margin-bottom:30px; line-height:1.6; color:#ccc;">Profesyonel döküm için tasarlanmış yüksek mukavemetli kompozit toz.</p>
+            <div class="features-grid">
+                <div class="feature-item"><h3>Taş Sertliği</h3><p>Darbe direnci yüksek.</p></div>
+                <div class="feature-item"><h3>Pürüzsüz</h3><p>Sıfır zımpara ihtiyacı.</p></div>
+                <div class="feature-item"><h3>Suya Dayanıklı</h3><p>Dış mekan kullanımına uygun.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="video-container">
+            <div class="video-mask">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/vwaj8b9S9_U?autoplay=1&mute=1&loop=1&playlist=vwaj8b9S9_U&controls=0" allow="autoplay; encrypted-media"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="scroll-area" id="scrollArea">
         <div class="sticky-wrap" id="mobileScroll">
@@ -122,24 +120,20 @@
     <footer class="info-footer">
         <div class="footer-container">
             <div class="info-box">
-                <h3 class="gold-text" style="margin-bottom: 20px; font-size: 1.8rem;">Hızlı Menü</h3>
-                <div class="footer-nav">
-                    <a href="biz-kimiz.html">Biz Kimiz?</a>
-                    <a href="#scrollArea">Galeri Keşfet</a>
-                </div>
+                <h3 class="gold-text" style="margin-bottom:15px;">Menü</h3>
+                <div class="footer-nav"><a href="biz-kimiz.html">Biz Kimiz?</a><a href="#scrollArea">Galeri</a></div>
             </div>
             <div class="info-box">
-                <h3 class="gold-text" style="margin-bottom: 20px; font-size: 1.8rem;">İletişim</h3>
+                <h3 class="gold-text" style="margin-bottom:15px;">İletişim</h3>
                 <ul class="contact-list">
                     <li><i class="fas fa-phone"></i> 0530 310 73 20</li>
                     <li><i class="fas fa-envelope"></i> seramiktozu@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> İzmir, Türkiye</li>
                 </ul>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/905303107320" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i> Sipariş</a>
+    <a href="https://wa.me/905303107320" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
     <script>
         const track = document.getElementById('galleryTrack');
@@ -147,50 +141,33 @@
         const cards = document.querySelectorAll('.gallery-card');
         const mobileScroll = document.getElementById('mobileScroll');
 
-        // PC SCROLL MANTIĞI
         window.addEventListener('scroll', () => {
             if (window.innerWidth > 768) {
                 const areaTop = scrollArea.offsetTop;
                 const areaHeight = scrollArea.offsetHeight - window.innerHeight;
                 const scrolled = window.scrollY - areaTop;
-
                 if (scrolled >= 0 && scrolled <= areaHeight) {
                     const progress = scrolled / areaHeight;
                     const trackWidth = track.scrollWidth - window.innerWidth;
                     track.style.transform = `translateX(-${progress * trackWidth}px)`;
-
                     cards.forEach(card => {
                         const rect = card.getBoundingClientRect();
-                        const center = window.innerWidth / 2;
-                        if (Math.abs(rect.left + rect.width / 2 - center) < 250) card.classList.add('active');
+                        if (Math.abs(rect.left + rect.width/2 - window.innerWidth/2) < 200) card.classList.add('active');
                         else card.classList.remove('active');
                     });
                 }
             }
         });
 
-        // MOBİL SWIPE MANTIĞI (SAĞA SOLA KAYDIRIRKEN BÜYÜME)
         if (window.innerWidth <= 768) {
-            const observerOptions = {
-                root: mobileScroll,
-                threshold: 0.6
-            };
-
-            const mobileObserver = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) entry.target.classList.add('active');
                     else entry.target.classList.remove('active');
                 });
-            }, observerOptions);
-
-            cards.forEach(card => mobileObserver.observe(card));
+            }, { root: mobileScroll, threshold: 0.7 });
+            cards.forEach(card => observer.observe(card));
         }
-
-        // KOPYALAMA ENGELİ
-        document.addEventListener('copy', (e) => e.preventDefault());
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && (e.key === 'c' || e.key === 'v')) e.preventDefault();
-        });
     </script>
 </body>
 </html>
