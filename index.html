@@ -31,12 +31,18 @@
 
         /* --- NAVİGASYON --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            position: fixed; top: 0; width: 100%; padding: 0.5rem 5%;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .brand-logo-img { height: 45px; }
+        
+        /* Yeni Logo ve Geçiş Efekti */
+        .brand-logo-img { 
+            height: 60px; 
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+            transition: 0.3s;
+        }
 
         /* --- HERO --- */
         .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
@@ -116,7 +122,6 @@
             .footer-nav { display: flex !important; flex-direction: column !important; align-items: center !important; width: 100%; }
             .footer-nav a { text-align: center !important; margin-left: 0 !important; padding-left: 0 !important; }
 
-            /* İletişim bölümünün kapsayıcısını mobilde ortalar */
             .info-box.right {
                 text-align: center !important;
                 display: flex !important;
@@ -125,7 +130,6 @@
                 width: 100% !important;
             }
 
-            /* Başlığın altındaki div yapısını ortalar */
             .info-box.right > div {
                 text-align: center !important;
                 display: flex !important;
@@ -133,15 +137,13 @@
                 align-items: center !important;
             }
 
-            /* Liste yapısının sola yaslanmasını engeller ve merkeze çeker */
             .contact-list {
-                text-align: left !important; /* İkon ve yazı hizasını bozmamak için */
+                text-align: left !important; 
                 display: inline-block !important; 
                 margin: 0 auto !important;
                 padding: 0 !important;
             }
 
-            /* İletişim başlığının kendisini ortalar */
             .info-box.right h3 {
                 text-align: center !important;
                 width: 100% !important;
@@ -154,7 +156,7 @@
 <body oncontextmenu="return false;">
 
     <nav>
-        <img src="cera/logo.png" alt="Cera Logo" class="brand-logo-img">
+        <img src="https://googleusercontent.com/image_generation_content/1" alt="Cera Logo" class="brand-logo-img">
         <a href="tel:05303107320" class="gold-text" style="text-decoration:none;">0530 310 73 20</a>
     </nav>
 
@@ -244,7 +246,6 @@
             }
         });
 
-        // MOBİL İÇİN ÖZEL MERKEZ ODAK SİSTEMİ
         if (window.innerWidth <= 768) {
             const mobileObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
