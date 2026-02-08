@@ -111,15 +111,48 @@
 
         /* --- MOBİL AYARLAR (KEMAN ÖZEL) --- */
         @media (max-width: 768px) {
-            .footer-container { flex-direction: column; align-items: center; text-align: center; gap: 60px; }
-            .info-box.left, .info-box.right { text-align: center; }
-            .contact-list { text-align: center; }
-            .contact-list li { justify-content: center; }
-            .scroll-area { height: auto; }
-            .sticky-wrap { position: relative; height: auto; }
-            .track { padding: 50px 10%; gap: 20px; overflow-x: auto; transform: none !important; }
-            .gallery-card { width: 80vw; height: 45vh; opacity: 1; transform: none; }
-        }
+    /* Ana konteynerin yönünü ve hizalamasını zorla */
+    .footer-container { 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        text-align: center !important; 
+        gap: 60px; 
+    }
+
+    /* İletişim kutusunun içindeki div'in sağa yaslanmasını engelle */
+    .info-box.right { 
+        text-align: center !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; 
+        width: 100%;
+    }
+
+    /* Başlık ve listeyi sarmalayan iç div'i serbest bırak */
+    .info-box.right > div {
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+
+    /* İkonların yanındaki boşlukları mobilde sıfırla */
+    .contact-list { 
+        display: inline-block; 
+        padding: 0; 
+        margin: 0 auto;
+    }
+
+    .contact-list li { 
+        justify-content: center !important; 
+        text-align: left; /* İkon ve yazı hizası bozulmasın diye içte sola kalsın */
+    }
+
+    /* Galeri ve diğer mobil ayarlar */
+    .scroll-area { height: auto; }
+    .sticky-wrap { position: relative; height: auto; }
+    .track { padding: 50px 10%; gap: 20px; overflow-x: auto; transform: none !important; }
+    .gallery-card { width: 80vw; height: 45vh; opacity: 1; transform: none; }
+}
+        
     </style>
 </head>
 <body oncontextmenu="return false;">
