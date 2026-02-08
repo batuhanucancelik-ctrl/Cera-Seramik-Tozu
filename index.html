@@ -109,13 +109,45 @@
         .contact-list i { color: var(--accent-color); font-size: 1.3rem; width: 25px; text-align: center; }
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; z-index: 10001; display: flex; align-items: center; gap: 10px; font-weight: bold; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s; }
 
+        /* --- MOBIL ENTEGRASYON --- */
         @media (max-width: 768px) {
             .footer-container { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 60px; }
-            .info-box.left, .info-box.right { text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; width: 100%; }
+            .info-box.left { text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; width: 100%; }
             .footer-nav { display: flex !important; flex-direction: column !important; align-items: center !important; width: 100%; }
             .footer-nav a { text-align: center !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .contact-list { display: flex !important; flex-direction: column !important; align-items: center !important; padding: 0 !important; }
-            .contact-list li { justify-content: center !important; }
+
+            /* İletişim bölümünün kapsayıcısını mobilde ortalar */
+            .info-box.right {
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+
+            /* Başlığın altındaki div yapısını ortalar */
+            .info-box.right > div {
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            /* Liste yapısının sola yaslanmasını engeller ve merkeze çeker */
+            .contact-list {
+                text-align: left !important; /* İkon ve yazı hizasını bozmamak için */
+                display: inline-block !important; 
+                margin: 0 auto !important;
+                padding: 0 !important;
+            }
+
+            /* İletişim başlığının kendisini ortalar */
+            .info-box.right h3 {
+                text-align: center !important;
+                width: 100% !important;
+            }
+            
+            .contact-list li { justify-content: flex-start !important; }
         }
     </style>
 </head>
