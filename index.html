@@ -48,7 +48,7 @@
         }
         .desc-text { font-size: 1.15rem; line-height: 1.8; color: #ddd; margin-bottom: 40px; text-align: left; }
         
-        /* PC 4'LÜ YAN YANA VE ANIMASYON */
+        /* PC 4'LÜ YAN YANA VE HOVER ANIMASYON */
         .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         
         @media (max-width: 992px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -63,9 +63,10 @@
         .feature-item:hover { transform: scale(1.05); border-color: var(--accent-color); z-index: 2; }
         .feature-item i { font-size: 2rem; color: var(--accent-color); margin-bottom: 15px; display: block; }
 
+        /* GALERİ - 14 FOTOĞRAFA GÖRE AYARLANDI */
         .scroll-area { position: relative; width: 100%; overflow: hidden; }
         @media (min-width: 769px) {
-            .scroll-area { height: 600vh; } 
+            .scroll-area { height: 800vh; } /* 14 foto için kaydırma alanı genişletildi */
             .sticky-wrap { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; }
             .track { display: flex; gap: 10vw; padding: 0 40vw; will-change: transform; }
             .gallery-card { width: 45vh; height: 55vh; flex-shrink: 0; transition: 0.5s; opacity: 0.2; transform: scale(0.8); }
@@ -130,6 +131,10 @@
                 <div class="gallery-card"><img src="cera/foto8.jpg"></div>
                 <div class="gallery-card"><img src="cera/foto9.jpg"></div>
                 <div class="gallery-card"><img src="cera/foto10.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto11.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto12.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto13.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto14.jpg"></div>
             </div>
         </div>
     </div>
