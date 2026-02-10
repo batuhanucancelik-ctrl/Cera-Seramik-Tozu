@@ -39,11 +39,13 @@ l<!DOCTYPE html>
         
         /* GÜNCELLENEN LOGO CSS: YUMUŞAK GEÇİŞ VE KONTUR */
         .brand-logo-img { 
-            height: 50px; 
-            border-radius: 8px; /* JPG köşelerini yumuşatır */
-            box-shadow: 0 0 15px rgba(198, 168, 124, 0.25), 0 0 5px rgba(255, 255, 255, 0.1); /* Siyah üzerine hafif altın/beyaz hüzme */
-            transition: 0.3s;
-        }
+    height: 50px; /* Mobilde gerekirse 60px yapabilirsiniz */
+    width: auto;
+    border-radius: 0; /* JPG olduğu için köşe yumuşatma beyazlık yapar, kapattık */
+    box-shadow: none !important; /* Çerçeve gibi görünen gölgeyi tamamen kaldırdık */
+    filter: contrast(1.1); /* Yazıların biraz daha belirginleşmesi için hafif kontrast */
+    display: block;
+}
 
         /* --- HERO --- */
         .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
