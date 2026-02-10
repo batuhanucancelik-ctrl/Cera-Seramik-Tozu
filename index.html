@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <title>CERA SERAMİK TOZU</title>
-    <meta name="title" content="CERA SERAMİK TOZU">
-    <meta name="description" content="Profesyonel döküm uygulamaları için geliştirilmiş, ultra pürüzsüz Cera Seramik Tozu.">
-
+    <title>CERA SERAMİK TOZU | Sanatın En Kaliteli Hali</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Manrope:wght@300;400;600&display=swap');
@@ -41,14 +37,11 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
-        /* LOGO FIX */
         .brand-logo-img { 
             height: 60px;
             width: auto;
             background: transparent !important;
             border: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
             image-rendering: -webkit-optimize-contrast;
             display: block;
         }
@@ -81,7 +74,7 @@
         /* --- GALERİ --- */
         .scroll-area { position: relative; width: 100%; }
         @media (min-width: 769px) {
-            .scroll-area { height: 700vh; } 
+            .scroll-area { height: 900vh; } 
             .sticky-wrap { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; }
             .track { display: flex; gap: 10vw; padding: 0 40vw; }
             .gallery-card { width: 45vh; height: 55vh; flex-shrink: 0; transition: 0.6s; opacity: 0.2; transform: scale(0.8); }
@@ -104,7 +97,7 @@
         .contact-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #ccc; }
         .contact-list i { color: var(--accent-color); }
         
-        .social-link { text-decoration: none; color: #888; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; transition: 0.3s; }
+        .social-link { text-decoration: none; color: #888; display: flex; align-items: center; gap: 10px; margin-top: 10px; transition: 0.3s; }
         .social-link:hover { color: var(--accent-color); }
 
         .wa-float { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; z-index: 9999; display: flex; align-items: center; gap: 8px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
@@ -135,10 +128,20 @@
     <div class="scroll-area" id="scrollArea">
         <div class="sticky-wrap" id="mobileWrapper">
             <div class="track" id="galleryTrack">
-                <div class="gallery-card"><img src="cera/foto1.jpg"></div><div class="gallery-card"><img src="cera/foto2.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto3.jpg"></div><div class="gallery-card"><img src="cera/foto4.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto5.jpg"></div><div class="gallery-card"><img src="cera/foto6.jpg"></div>
-                <div class="gallery-card"><img src="cera/foto7.jpg"></div><div class="gallery-card"><img src="cera/foto8.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto1.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto2.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto3.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto4.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto5.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto6.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto7.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto8.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto9.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto10.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto11.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto12.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto13.jpg"></div>
+                <div class="gallery-card"><img src="cera/foto14.jpg"></div>
             </div>
         </div>
     </div>
@@ -150,8 +153,13 @@
                 <div style="margin-top:20px;">
                     <a href="#" style="color:#888; text-decoration:none; display:block; margin-bottom:10px;">Anasayfa</a>
                     <a href="biz-kimiz.html" style="color:#888; text-decoration:none; display:block;">Biz Kimiz?</a>
-                    <a href="https://instagram.com/ceraseramik" target="_blank" class="social-link" style="margin-top:20px;"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="https://facebook.com/ceraseramik" target="_blank" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+                    
+                    <a href="https://www.instagram.com/seramiktozu/" target="_blank" class="social-link" style="margin-top:20px;">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/p/Cera-seramik-tozu-100066599107208/" target="_blank" class="social-link">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
                 </div>
             </div>
             <div class="footer-box">
@@ -168,7 +176,6 @@
     <a href="https://wa.me/905303107320" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
     <script>
-        // Feature Reveal Logic
         const observerOptions = { threshold: 0.2 };
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -177,7 +184,6 @@
         }, observerOptions);
         document.querySelectorAll('.feature-item').forEach(el => revealObserver.observe(el));
 
-        // Gallery Scroll Logic
         const track = document.getElementById('galleryTrack');
         const scrollArea = document.getElementById('scrollArea');
         const cards = document.querySelectorAll('.gallery-card');
