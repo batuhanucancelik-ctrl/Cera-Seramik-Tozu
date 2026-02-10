@@ -46,11 +46,10 @@
             background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px);
             border: 2px solid transparent; border-image: var(--gold-leaf) 1;
         }
-        .desc-text { font-size: 1.15rem; line-height: 1.8; color: #ddd; margin-bottom: 40px; text-align: left; }
+        /* YAZILAR ORTALANDI */
+        .desc-text { font-size: 1.15rem; line-height: 1.8; color: #ddd; margin-bottom: 40px; text-align: center; }
         
-        /* PC 4'LÜ YAN YANA VE HOVER ANIMASYON */
         .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        
         @media (max-width: 992px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 576px) { .features-grid { grid-template-columns: 1fr; } }
 
@@ -63,29 +62,43 @@
         .feature-item:hover { transform: scale(1.05); border-color: var(--accent-color); z-index: 2; }
         .feature-item i { font-size: 2rem; color: var(--accent-color); margin-bottom: 15px; display: block; }
 
-        /* GALERİ - 14 FOTOĞRAFA GÖRE AYARLANDI */
-        .scroll-area { position: relative; width: 100%; overflow: hidden; }
+        /* GALERİ DÜZELTME: SIKI SABİTLEME */
+        .scroll-area { position: relative; width: 100%; height: 800vh; }
+        .sticky-wrap { 
+            position: sticky; 
+            top: 0; 
+            height: 100vh; 
+            width: 100%;
+            display: flex; 
+            align-items: center; 
+            overflow: hidden; /* Dışarı taşmayı engeller */
+        }
+        
         @media (min-width: 769px) {
-            .scroll-area { height: 800vh; } /* 14 foto için kaydırma alanı genişletildi */
-            .sticky-wrap { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; }
             .track { display: flex; gap: 10vw; padding: 0 40vw; will-change: transform; }
             .gallery-card { width: 45vh; height: 55vh; flex-shrink: 0; transition: 0.5s; opacity: 0.2; transform: scale(0.8); }
         }
         @media (max-width: 768px) {
-            .sticky-wrap { overflow-x: auto; display: flex; padding: 50px 0; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
             .track { display: flex; gap: 20px; padding: 0 10vw; }
-            .gallery-card { width: 75vw; height: 50vh; flex-shrink: 0; scroll-snap-align: center; opacity: 0.3; transform: scale(0.9); transition: 0.4s; }
+            .gallery-card { width: 75vw; height: 50vh; flex-shrink: 0; opacity: 0.3; transform: scale(0.9); transition: 0.4s; }
         }
         .gallery-card.active { opacity: 1 !important; transform: scale(1.1) !important; }
         .gallery-card img { width: 100%; height: 100%; object-fit: cover; border: 1px solid #bf953f; border-radius: 5px; }
 
-        .info-footer { padding: 80px 5%; background: #050505; border-top: 1px solid rgba(198, 168, 124, 0.1); }
+        .info-footer { padding: 80px 5% 40px; background: #050505; border-top: 1px solid rgba(198, 168, 124, 0.1); }
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
         .footer-link { color: #888; text-decoration: none; display: block; margin-bottom: 15px; transition: 0.3s; }
         .footer-link:hover { color: var(--accent-color); }
         .contact-list { list-style: none; }
         .contact-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: #ccc; }
         .contact-list i { color: var(--accent-color); width: 25px; text-align: center; }
+        
+        /* SOSYAL MEDYA ALANI */
+        .social-footer-section { width: 100%; text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .social-icons-wrapper { display: flex; justify-content: center; gap: 40px; margin-top: 25px; }
+        .social-icon-big { font-size: 2rem; color: #aaa; transition: 0.3s; }
+        .social-icon-big:hover { color: var(--accent-color); transform: scale(1.2); }
+
         .wa-float { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; z-index: 9999; display: flex; align-items: center; gap: 8px; font-weight: bold; }
     </style>
 </head>
@@ -146,10 +159,6 @@
                 <a href="index.html" class="footer-link">Anasayfa</a>
                 <a href="biz-kimiz.html" class="footer-link">Biz Kimiz?</a>
                 <a href="sss.html" class="footer-link">Sıkça Sorulan Sorular</a>
-                <div style="margin-top:20px; display: flex; gap: 20px;">
-                    <a href="https://www.instagram.com/seramiktozu/" target="_blank" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="https://www.facebook.com/p/Cera-seramik-tozu-100066599107208/" target="_blank" class="footer-link"><i class="fab fa-facebook"></i> Facebook</a>
-                </div>
             </div>
 
             <div class="footer-box">
@@ -159,6 +168,18 @@
                     <li><i class="fas fa-envelope"></i> seramiktozu@gmail.com</li>
                     <li><i class="fas fa-map-marker-alt"></i> İzmir, Türkiye</li>
                 </ul>
+            </div>
+
+            <div class="social-footer-section">
+                <h3 class="gold-text" style="font-size: 1.5rem; letter-spacing: 2px;">SOSYAL MEDYA</h3>
+                <div class="social-icons-wrapper">
+                    <a href="https://www.instagram.com/seramiktozu/" target="_blank" class="social-icon-big">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/p/Cera-seramik-tozu-100066599107208/" target="_blank" class="social-icon-big">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
@@ -178,15 +199,19 @@
         const scrollArea = document.getElementById('scrollArea');
         const cards = document.querySelectorAll('.gallery-card');
 
+        // Masaüstü Kaydırma
         window.addEventListener('scroll', () => {
             if (window.innerWidth > 768) {
                 const areaTop = scrollArea.offsetTop;
                 const areaHeight = scrollArea.offsetHeight - window.innerHeight;
                 let scrolled = window.scrollY - areaTop;
+                
+                // sticky-wrap'in sabit kalmasını garantiler
                 if (scrolled >= 0 && scrolled <= areaHeight) {
                     const progress = scrolled / areaHeight;
                     const maxMove = track.scrollWidth - window.innerWidth;
                     track.style.transform = `translateX(-${progress * maxMove}px)`;
+                    
                     cards.forEach(card => {
                         const rect = card.getBoundingClientRect();
                         const center = window.innerWidth / 2;
@@ -198,8 +223,12 @@
             }
         });
 
+        // Mobil Kaydırma
         if (window.innerWidth <= 768) {
+            // Mobilde sticky yerine yatay scroll
             const stickyWrap = document.querySelector('.sticky-wrap');
+            stickyWrap.style.overflowX = 'auto'; // Mobilde kaydırmaya izin ver
+            
             stickyWrap.addEventListener('scroll', () => {
                 cards.forEach(card => {
                     const rect = card.getBoundingClientRect();
